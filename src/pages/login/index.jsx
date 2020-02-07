@@ -1,17 +1,16 @@
 import React, { Component } from "react";
-import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
-import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import Typography from "@material-ui/core/Typography";
-import CardContent from '@material-ui/core/CardContent';
 import Container from "@material-ui/core/Container";
 import LogoNetuno from "../assets/images/lo.png";
-
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
 import withStyles from "@material-ui/core/styles/withStyles";
+import { Link } from "react-router-dom";
+
 
 const styles = theme => ({
   paper: {
@@ -27,11 +26,31 @@ const styles = theme => ({
 
   form: {
     width: "100%", // Fix IE 11 issue.
-    marginTop: theme.spacing(3)
+    marginTop: theme.spacing(3),
+    
+
   },
   submit: {
     margin: theme.spacing(3, 0, 2)
-  }
+  },
+
+  root: {
+    minWidth: 275,
+    borderRadius: 4
+  },
+  bullet: {
+    display: 'inline-block',
+    margin: '0 2px',
+    transform: 'scale(0.8)',
+  },
+  title: {
+    fontSize: 14,
+  },
+  pos: {
+    marginBottom: 12,
+  },
+
+  
 });
 
 class index extends Component {
@@ -66,15 +85,25 @@ class index extends Component {
     const { classes } = this.props;
 
     return (
+
+      
       <Container component="main" maxWidth="xs">
         <CssBaseline />
-        <CardContent>
+       
         <div className={classes.paper}>
+
+        <Card  className={classes.root} raised={false} 
+        style={{borderRadius: 15, width:"max-content",} }>
+         <CardContent  >
+
         <img src={LogoNetuno} alt="NETUNO"  style={{
-      width: "250px"
-   }   }/>
-          <Typography component="h1" variant="h5">
-            Clientes IP Inventory
+      width: "200px", textAlign: "center",display:"block",
+      margin:"auto",}   }/>
+
+
+          <Typography component="h1" variant="h5"
+         style={{ textAlign: "center",} } >
+            Client Internet Protocol Inventory
           </Typography>
           <form className={classes.form} noValidate>
             <Grid container spacing={2}>
@@ -102,20 +131,26 @@ class index extends Component {
                 />
               </Grid>
             </Grid>
+            <Link to="../assets/home/index.jsx"  >
             <Button
               type="button"
               fullWidth
               variant="contained"
               color="primary"
               className={classes.submit}
+              disableElevation={true}
               
               >
               Sumit
             </Button>
+            </Link>
           </form>
+          </CardContent>
+      </Card>
         </div>
-        </CardContent>
+        
       </Container>
+    
     );
   }
 }

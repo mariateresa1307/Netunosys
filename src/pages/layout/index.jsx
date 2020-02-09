@@ -17,6 +17,12 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
+import LogoNetuno from "../assets/images/lo.png";
+import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
+import AssignmentIcon from '@material-ui/icons/Assignment';
+import RouterIcon from '@material-ui/icons/Router';
+import SettingsInputAntennaIcon from '@material-ui/icons/SettingsInputAntenna';
+
 
 const drawerWidth = 240;
 
@@ -100,6 +106,7 @@ class index extends Component {
     const { classes, theme } = this.props;
 
     return (
+
       <div className={classes.root}>
         <CssBaseline />
         <AppBar
@@ -108,6 +115,8 @@ class index extends Component {
             [classes.appBarShift]: this.state.open
           })}
         >
+
+
           <Toolbar>
             <IconButton
               color="inherit"
@@ -122,7 +131,8 @@ class index extends Component {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" noWrap>
-              Persistent drawer
+              Client IP Inventory
+
             </Typography>
           </Toolbar>
         </AppBar>
@@ -136,24 +146,55 @@ class index extends Component {
           }}
         >
           <div className={classes.drawerHeader}>
+            <img
+              src={LogoNetuno}
+              alt="NETUNO"
+              style={{
+                width: "150px",
+                textAlign: "center",
+                display: "block",
+                margin: "auto"
+              }}
+            />
             <IconButton onClick={this.handleDrawerClose}>
               {this.state.open ? <ChevronLeftIcon /> : <ChevronRightIcon />}
             </IconButton>
+
           </div>
           <Divider />
           <List>
-            {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-              <ListItem button key={text}>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItem>
-            ))}
+            <ListItem button key={"Clientes Inventory"}>
+              <ListItemIcon>
+                <AssignmentIndIcon />
+              </ListItemIcon>
+              <ListItemText primary={"Clientes Inventory"} />
+            </ListItem>
+
+            <ListItem button key={"Vlan Inventory"}>
+              <ListItemIcon>
+                <AssignmentIcon />
+              </ListItemIcon>
+              <ListItemText primary={"Vlan Inventory"} />
+            </ListItem>
+
+            <ListItem button key={"Super Bloques IP"}>
+              <ListItemIcon>
+                <RouterIcon />
+              </ListItemIcon>
+              <ListItemText primary={"Super Bloques IP"} />
+            </ListItem>
+
+            <ListItem button key={"Servicios"}>
+              <ListItemIcon>
+                <SettingsInputAntennaIcon />
+              </ListItemIcon>
+              <ListItemText primary={"Servicios"} />
+            </ListItem>
           </List>
+
           <Divider />
           <List>
-            {["All mail", "Trash", "Spam"].map((text, index) => (
+            {["All Inventory", "Reportes", "Spam"].map((text, index) => (
               <ListItem button key={text}>
                 <ListItemIcon>
                   {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}

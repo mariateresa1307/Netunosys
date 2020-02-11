@@ -22,8 +22,8 @@ import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import RouterIcon from '@material-ui/icons/Router';
 import SettingsInputAntennaIcon from '@material-ui/icons/SettingsInputAntenna';
-
-
+import { Link } from "react-router-dom";
+import HomeIcon from '@material-ui/icons/Home';
 const drawerWidth = 240;
 
 const styles = theme => ({
@@ -163,12 +163,25 @@ class index extends Component {
           </div>
           <Divider />
           <List>
+
+          <Link to="/home" >     
+          <ListItem button key={"Home"}>
+              <ListItemIcon>
+                <HomeIcon />
+              </ListItemIcon>
+              <ListItemText primary={"Home"} />
+            </ListItem>
+            </Link>
+
+          <Link to="/cliente" >  
             <ListItem button key={"Clientes Inventory"}>
               <ListItemIcon>
                 <AssignmentIndIcon />
               </ListItemIcon>
               <ListItemText primary={"Clientes Inventory"} />
             </ListItem>
+            </Link>
+
 
             <ListItem button key={"Vlan Inventory"}>
               <ListItemIcon>

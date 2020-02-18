@@ -18,12 +18,12 @@ import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
 import LogoNetuno from "../assets/images/lo.png";
-import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
-import AssignmentIcon from '@material-ui/icons/Assignment';
-import RouterIcon from '@material-ui/icons/Router';
-import SettingsInputAntennaIcon from '@material-ui/icons/SettingsInputAntenna';
+import AssignmentIndIcon from "@material-ui/icons/AssignmentInd";
+import AssignmentIcon from "@material-ui/icons/Assignment";
+import RouterIcon from "@material-ui/icons/Router";
+import SettingsInputAntennaIcon from "@material-ui/icons/SettingsInputAntenna";
 import { Link } from "react-router-dom";
-import HomeIcon from '@material-ui/icons/Home';
+import HomeIcon from "@material-ui/icons/Home";
 const drawerWidth = 240;
 
 const styles = theme => ({
@@ -31,6 +31,7 @@ const styles = theme => ({
     display: "flex"
   },
   appBar: {
+    backGroundColor: "#1d4688",
     transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen
@@ -65,6 +66,7 @@ const styles = theme => ({
     justifyContent: "flex-end"
   },
   content: {
+    zIndex: 1,
     flexGrow: 1,
     padding: theme.spacing(3),
     transition: theme.transitions.create("margin", {
@@ -103,10 +105,9 @@ class index extends Component {
   }
 
   render() {
-    const { classes, theme } = this.props;
+    const { classes } = this.props;
 
     return (
-
       <div className={classes.root}>
         <CssBaseline />
         <AppBar
@@ -115,8 +116,6 @@ class index extends Component {
             [classes.appBarShift]: this.state.open
           })}
         >
-
-
           <Toolbar>
             <IconButton
               color="inherit"
@@ -132,7 +131,6 @@ class index extends Component {
             </IconButton>
             <Typography variant="h6" noWrap>
               Client IP Inventory
-
             </Typography>
           </Toolbar>
         </AppBar>
@@ -159,29 +157,26 @@ class index extends Component {
             <IconButton onClick={this.handleDrawerClose}>
               {this.state.open ? <ChevronLeftIcon /> : <ChevronRightIcon />}
             </IconButton>
-
           </div>
           <Divider />
           <List>
-
-          <Link to="/home" >     
-          <ListItem button key={"Home"}>
-              <ListItemIcon>
-                <HomeIcon />
-              </ListItemIcon>
-              <ListItemText primary={"Home"} />
-            </ListItem>
+            <Link to="/home">
+              <ListItem button key={"Home"}>
+                <ListItemIcon>
+                  <HomeIcon />
+                </ListItemIcon>
+                <ListItemText primary={"Home"} />
+              </ListItem>
             </Link>
 
-          <Link to="/cliente" >  
-            <ListItem button key={"Clientes Inventory"}>
-              <ListItemIcon>
-                <AssignmentIndIcon />
-              </ListItemIcon>
-              <ListItemText primary={"Clientes Inventory"} />
-            </ListItem>
+            <Link to="/cliente">
+              <ListItem button key={"Clientes Inventory"}>
+                <ListItemIcon>
+                  <AssignmentIndIcon />
+                </ListItemIcon>
+                <ListItemText primary={"Clientes Inventory"} />
+              </ListItem>
             </Link>
-
 
             <ListItem button key={"Vlan Inventory"}>
               <ListItemIcon>
@@ -217,6 +212,21 @@ class index extends Component {
             ))}
           </List>
         </Drawer>
+
+        <div
+          id="1234"
+          style={{
+            height: "226px",
+            width: "100%",
+            position: "absolute",
+            zIndex: "0",
+            backgroundImage:
+              "linear-gradient(to top, #75c2f4, #56a2dc, #3982c4, #2062ab, #0a4490)",
+
+            borderBottom: "5px solid #ff8d04"
+          }}
+        ></div>
+
         <main
           className={clsx(classes.content, {
             [classes.contentShift]: this.state.open

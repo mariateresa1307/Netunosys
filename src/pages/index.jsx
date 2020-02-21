@@ -9,7 +9,7 @@ import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 
 const theme = createMuiTheme({
   palette: {
-    primary: { main: "#1d4688" }
+    primary: { main: "#304074" }
     // secondary: { main: "#007EFF" }
   }
 });
@@ -23,6 +23,7 @@ const index = () => (
         <Layout>
           <Route exact path="/home" component={Home} />
           <Route exact path="/cliente" component={Cliente} />
+          <Route exact path="/../DSoft" component={Cliente} />
         </Layout>
       </Switch>
     </Router>

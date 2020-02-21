@@ -4,11 +4,12 @@ import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import CardActions from "@material-ui/core/CardActions";
 import Typography from "@material-ui/core/Typography";
+import { Link } from "react-router-dom";
 
 class card extends Component {
   render() {
     return (
-      <div>
+      <div style={{ borderBottom: "3px solid #949598" ,  marginBottom: "20px"}}>
         <Card variant="outlined">
           <CardContent>
             <Typography variant="h6">{this.props.title}</Typography>
@@ -16,7 +17,8 @@ class card extends Component {
               <span
                 style={{
                   float: "right",
-                  marginRight: "20px"
+                  marginRight: "20px",
+                  
                 }}
               >
                 {this.props.content}
@@ -24,9 +26,13 @@ class card extends Component {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button size="small">Learn More</Button>
+          <Link to="/cliente/DSoft">
+            <Button  size="small">Mas Informacion</Button>
+            </Link>
           </CardActions>
         </Card>
+
+       
       </div>
     );
   }

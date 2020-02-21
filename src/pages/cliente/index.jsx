@@ -20,7 +20,7 @@ class index extends Component {
           lookup: { 34: "İstanbul", 63: "Şanlıurfa" }
         }
       ],
-
+    
       data: [
         { name: "Mehmet", surname: "Baran", birthYear: 1987, birthCity: 63 },
         {
@@ -36,13 +36,13 @@ class index extends Component {
   render() {
     return (
       <div style={{ maxWidth: "100%" }}>
-        <Grid container spacing={2}>
+        <Grid container spacing={2} >
           <Grid item xs={12} sm={6} md={6} lg={6}>
-            <Card title="outlined" content="5" />
+            <Card title="Desconexiones Soft" content="5" />
           </Grid>
 
           <Grid item xs={12} sm={6} md={6} lg={6}>
-            <Card title="outlined" content="50" />
+            <Card title="Por Instalar" content="50" />
           </Grid>
 
           <Grid item xs={12} sm={12} md={12} lg={12}>

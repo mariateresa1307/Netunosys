@@ -17,7 +17,7 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
-import LogoNetuno from "../assets/images/lo.png";
+import LogoNetuno from "../assets/images/netuno.png";
 import AssignmentIndIcon from "@material-ui/icons/AssignmentInd";
 import AssignmentIcon from "@material-ui/icons/Assignment";
 import RouterIcon from "@material-ui/icons/Router";
@@ -111,6 +111,7 @@ class index extends Component {
       <div className={classes.root}>
         <CssBaseline />
         <AppBar
+          
           position="fixed"
           className={clsx(classes.appBar, {
             [classes.appBarShift]: this.state.open
@@ -210,23 +211,28 @@ class index extends Component {
                 <ListItemText primary={text} />
               </ListItem>
             ))}
+
+
+            
           </List>
+
+        
+
         </Drawer>
 
         <div
           id="1234"
           style={{
             height: "226px",
-            width: "100%",
+            width:"200%",
             position: "absolute",
             zIndex: "0",
             backgroundImage:
-              "linear-gradient(to top, #75c2f4, #56a2dc, #3982c4, #2062ab, #0a4490)",
-
-            borderBottom: "5px solid #ff8d04"
+              "linear-gradient(to top, #aae1ed, #7db8d1, #588fb5, #3f6796, #304074)",
+              
+            borderBottom: "4px solid #ff8d04"
           }}
         ></div>
-
         <main
           className={clsx(classes.content, {
             [classes.contentShift]: this.state.open

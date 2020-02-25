@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import Grid from "@material-ui/core/Grid";
 import Table from "../../component/table";
-import Card from "../../component/card";
-
+import Breadcrumbs from "@material-ui/core/Breadcrumbs";
+import { Link } from "react-router-dom";
 class index extends Component {
   constructor(props) {
     super(props);
     this.state = {
       columns: [
-        { title: "Nombre", field: "name" },
+        { title: "Name", field: "name" },
         {
           title: "Surname",
           field: "surname",
@@ -36,24 +36,17 @@ class index extends Component {
 
   render() {
     return (
-      <Grid container spacing={2}>
-        <Grid item xs={12} sm={6} md={6} lg={6}>
-          <Card title="Desconexiones Soft" content="5" linkTo="/DSoft" />
-        </Grid>
-
-        <Grid item xs={12} sm={6} md={6} lg={6}>
-          <Card title="Por Instalar" content="50" linkTo="/PorInstalar" />
-        </Grid>
-
+      <div>
         <Grid item xs={12} sm={12} md={12} lg={12}>
           <Table
             columns={this.state.columns}
             data={this.state.data}
-            title={"Lista de clientes"}
+            title={"Lista de clientes Desconectados Soft"}
           />
         </Grid>
-      </Grid>
+      </div>
     );
   }
 }
+
 export default index;

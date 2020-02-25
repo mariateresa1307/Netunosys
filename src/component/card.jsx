@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 class card extends Component {
   render() {
     return (
-      <div style={{ borderBottom: "3px solid #949598" ,  marginBottom: "20px"}}>
+      <div style={{ borderBottom: "3px solid #949598", marginBottom: "20px" }}>
         <Card variant="outlined">
           <CardContent>
             <Typography variant="h6">{this.props.title}</Typography>
@@ -17,8 +17,7 @@ class card extends Component {
               <span
                 style={{
                   float: "right",
-                  marginRight: "20px",
-                  
+                  marginRight: "20px"
                 }}
               >
                 {this.props.content}
@@ -26,13 +25,11 @@ class card extends Component {
             </Typography>
           </CardContent>
           <CardActions>
-          <Link to="/cliente/DSoft">
-            <Button  size="small">Mas Informacion</Button>
+            <Link to={this.props.linkTo}>
+              <Button size="small">Mas Informacion</Button>
             </Link>
           </CardActions>
         </Card>
-
-       
       </div>
     );
   }

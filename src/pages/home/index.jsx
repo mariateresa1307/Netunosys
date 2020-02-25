@@ -1,21 +1,17 @@
 import React, { Component } from "react";
-import Grid from '@material-ui/core/Grid';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import LogoGraf from "../assets/images/loi.jpeg";
-import LogoGrafi from "../assets/images/la.png";
-
-
+import Grid from "@material-ui/core/Grid";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import LogoGraf from "../../assets/images/loi.jpeg";
+import LogoGrafi from "../../assets/images/la.png";
 
 class index extends Component {
   render() {
     return (
       <Grid container spacing={1}>
-        <Grid item xs={12} sm={6} md={6} lg={6}   >
+        <Grid item xs={12} sm={6} md={6} lg={6}>
           <Card variant="outlined">
-            <CardContent>
-              Desconexiones
-            </CardContent>
+            <CardContent>Desconexiones</CardContent>
             <img
               src={LogoGraf}
               alt="NETUNO"
@@ -29,11 +25,9 @@ class index extends Component {
           </Card>
         </Grid>
 
-        <Grid item xs={12} sm={6} md={6} lg={6}  >
+        <Grid item xs={12} sm={6} md={6} lg={6}>
           <Card variant="outlined">
-            <CardContent>
-              Aprovisionamiento
-            </CardContent>
+            <CardContent>Aprovisionamiento</CardContent>
             <img
               src={LogoGrafi}
               alt="NETUNO"

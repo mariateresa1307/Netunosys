@@ -30,7 +30,7 @@ import Collapse from "@material-ui/core/Collapse";
 import StarBorder from "@material-ui/icons/StarBorder";
 import RemoveCircleOutlineIcon from "@material-ui/icons/RemoveCircleOutline";
 import RecentActorsIcon from "@material-ui/icons/RecentActors";
-import Particles from 'react-particles-js';
+
 
 const drawerWidth = 240;
 
@@ -176,15 +176,12 @@ class index extends Component {
           <Divider />
          
           <List>
-         
-            <Link to="/home">
-              <ListItem button key={"Home"}>
+              <ListItem button key={"Home"}  component={Link}  to="/home" >
                 <ListItemIcon>
                   <HomeIcon />
                 </ListItemIcon>
                 <ListItemText primary={"Home"} />
               </ListItem>
-            </Link>
 
             <ListItem
               button

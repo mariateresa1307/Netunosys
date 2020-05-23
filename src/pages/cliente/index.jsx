@@ -50,7 +50,7 @@ class index extends Component {
             columns={this.state.columns}
             data={this.state.data}
             title={"Lista de clientes"}
-          />
+          /> 
         </Grid>
       </Grid>
     );

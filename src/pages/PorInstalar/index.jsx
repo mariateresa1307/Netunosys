@@ -2,8 +2,19 @@ import React, { Component } from "react";
 import Grid from "@material-ui/core/Grid";
 import Table from "../../component/table";
 import ReplyAllIcon from "@material-ui/icons/ReplyAll";
-import IconButton from "@material-ui/core/IconButton";
-import { Link } from "react-router-dom";
+import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
+import Fab from '@material-ui/core/Fab';
+import Tooltip from '@material-ui/core/Tooltip';
+import withStyles from "@material-ui/core/styles/withStyles";
+
+
+const styles = theme => ({
+  fab: {
+    margin: theme.spacing(2),
+  }
+})
+
+
 class index extends Component {
   constructor(props) {
     super(props);
@@ -39,6 +50,13 @@ class index extends Component {
     return (
       <div>
         <Grid item xs={12} sm={12} md={12} lg={12}>
+
+        <Tooltip title="Add" aria-label="add" href={"cliente"} >
+        <Fab color="primary" className={this.props.classes.fab}>
+        <KeyboardArrowLeftIcon />
+        </Fab>
+      </Tooltip>
+
           <Table
             columns={this.state.columns}
             data={this.state.data}
@@ -50,4 +68,4 @@ class index extends Component {
   }
 }
 
-export default index;
+export default withStyles(styles)(index);

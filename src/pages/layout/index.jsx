@@ -30,15 +30,20 @@ import Collapse from "@material-ui/core/Collapse";
 import StarBorder from "@material-ui/icons/StarBorder";
 import RemoveCircleOutlineIcon from "@material-ui/icons/RemoveCircleOutline";
 import RecentActorsIcon from "@material-ui/icons/RecentActors";
+import Particles from 'react-particles-js';
+
 const drawerWidth = 240;
 
 const styles = theme => ({
   root: {
     display: "flex",
-    boxShadow: "none"
+    boxShadow: "none",
+    
+
   },
   appBar: {
     backGroundColor: "#1d4688",
+   
     transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen
@@ -131,7 +136,7 @@ class index extends Component {
         >
           <Toolbar>
             <IconButton
-              color="inherit"
+              
               aria-label="open drawer"
               onClick={this.handleDrawerOpen}
               edge="start"
@@ -172,7 +177,9 @@ class index extends Component {
             </IconButton>
           </div>
           <Divider />
+         
           <List>
+         
             <Link to="/home">
               <ListItem button key={"Home"}>
                 <ListItemIcon>
@@ -229,12 +236,14 @@ class index extends Component {
               </Link>
             </Collapse>
 
+            <Link to="/vlanInventory">
             <ListItem button key={"Vlan Inventory"}>
               <ListItemIcon>
                 <AssignmentIcon />
               </ListItemIcon>
               <ListItemText primary={"Vlan Inventory"} />
             </ListItem>
+              </Link>
 
             <ListItem button key={"Super Bloques IP"}>
               <ListItemIcon>
@@ -263,7 +272,7 @@ class index extends Component {
             ))}
           </List>
         </Drawer>
-
+   
         <div
           id="1234"
           style={{

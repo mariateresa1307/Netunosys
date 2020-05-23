@@ -5,6 +5,7 @@ import Home from "./home";
 import Cliente from "./cliente";
 import DSoft from "./DSoft";
 import PorInstalar from "./PorInstalar";
+import VlanInventory from "./vlanInventory";
 import history from "../helpers/history";
 import Layout from "./layout";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
@@ -28,6 +29,8 @@ const index = () => (
           <Route exact path="/cliente" component={Cliente} />
           <Route exact path="/DSoft" component={DSoft} />
           <Route exact path="/PorInstalar" component={PorInstalar} />
+          <Route exact path="/vlanInventory" component={VlanInventory} />
+        
         </Layout>
       </Switch>
     </Router>

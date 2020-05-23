@@ -126,6 +126,7 @@ class index extends Component {
       <div className={classes.root}>
         <CssBaseline />
         <AppBar
+          elevation={0}
           position="fixed"
           className={clsx(classes.appBar, {
             [classes.appBarShift]: this.state.open
@@ -133,7 +134,6 @@ class index extends Component {
         >
           <Toolbar>
             <IconButton
-              
               aria-label="open drawer"
               onClick={this.handleDrawerOpen}
               edge="start"

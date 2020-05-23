@@ -37,13 +37,10 @@ const drawerWidth = 240;
 const styles = theme => ({
   root: {
     display: "flex",
-    boxShadow: "none",
-    
-
+    boxShadow: "none"
   },
   appBar: {
     backGroundColor: "#1d4688",
-   
     transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen
@@ -278,11 +275,10 @@ class index extends Component {
           style={{
             height: "226px",
             width: "100%",
-            position: "absolute",
+            position: "fixed",
             zIndex: "0",
             backgroundImage:
               "linear-gradient(to top, #aae1ed, #7db8d1, #588fb5, #3f6796, #304074)",
-
             borderBottom: "3px solid #ff8d04"
           }}
         ></div>
@@ -292,7 +288,6 @@ class index extends Component {
           })}
         >
           <div className={classes.drawerHeader} />
-
           {this.props.children}
         </main>
       </div>

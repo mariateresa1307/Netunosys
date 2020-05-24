@@ -9,14 +9,19 @@ import MenuItem from '@material-ui/core/MenuItem';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-
-
+import TextField from '@material-ui/core/TextField';
+import SearchIcon from '@material-ui/icons/Search';
 
 const styles = theme => ({
   formControl: {
     Width: 30},
 
-  
+    root: {
+      '& > *': {
+        margin: theme.spacing(1),
+        width: '25ch',
+      },
+    },
 
     
 })
@@ -67,7 +72,7 @@ class index extends Component {
       ]
     };
   }
-   
+ 
   render() {
     
     return (
@@ -77,51 +82,69 @@ class index extends Component {
 
           <Card style={{margin:"30px"}}>
             <CardContent>
-            <FormControl className={this.props.formControl}style={{ marginTop:"-15px",marginBottom:"-15px"}}>
+      <Grid container>
+      <Grid item xs={4} sm={4} md={4} lg={4}>
 
-              <InputLabel htmlFor="grouped-select">
-                DSLAM
-              </InputLabel>
+<FormControl className={this.props.formControl}style={{ marginTop:"-15px",marginBottom:"-15px"}}>
+  <InputLabel htmlFor="grouped-select">
+    DSLAM
+  </InputLabel>
 
-          <Select defaultValue="" style={{width:"100px"}}id="grouped-select">
-             <MenuItem value="">
-               <em>None</em>
-              </MenuItem>
+<Select defaultValue="" style={{width:"100px"}}id="grouped-select">
+ <MenuItem value="">
+   <em>None</em>
+  </MenuItem>
+      <ListSubheader>Category 1</ListSubheader>
+      <MenuItem value={1}>Option 1</MenuItem>
+      <MenuItem value={2}>Option 2</MenuItem>
+      <ListSubheader>Category 2</ListSubheader>
+      <MenuItem value={3}>Option 3</MenuItem>
+      <MenuItem value={4}>Option 4</MenuItem>
+</Select>
+ </FormControl>
+</Grid>
 
-            <ListSubheader>Category 1</ListSubheader>
-            <MenuItem value={1}>Option 1</MenuItem>
-            <MenuItem value={2}>Option 2</MenuItem>
-            <ListSubheader>Category 2</ListSubheader>
-            <MenuItem value={3}>Option 3</MenuItem>
-            <MenuItem value={4}>Option 4</MenuItem>
-        </Select>
-      </FormControl>
+<Grid xs={4} sm={4} md={4} lg={4}>
 
-      <FormControl className={this.props.formControl}style={{marginLeft:"30px",marginTop:"-15px",marginBottom:"-15px"}}>
+  <FormControl className={this.props.formControl}style={{marginLeft:"30px",marginTop:"-15px",marginBottom:"-15px"}}>
 
-        <InputLabel htmlFor="grouped-select">
-           Ubicacion
-        </InputLabel>
+    <InputLabel htmlFor="grouped-select">
+      Ubicacion
+   </InputLabel>
+   <Select defaultValue="" style={{width:"100px"}}id="grouped-select">
+ <MenuItem value="">
+  <em>None</em>
+ </MenuItem>
 
-          <Select defaultValue="" style={{width:"100px"}}id="grouped-select">
-          <MenuItem value="">
-           <em>None</em>
-          </MenuItem>
-
-            <ListSubheader>Category 1</ListSubheader>
-            <MenuItem value={1}>Option 1</MenuItem>
-            <MenuItem value={2}>Option 2</MenuItem>
-            <ListSubheader>Category 2</ListSubheader>
-            <MenuItem value={3}>Option 3</MenuItem>
-            <MenuItem value={4}>Option 4</MenuItem>
-            </Select>
+<ListSubheader>Category 1</ListSubheader>
+<MenuItem value={1}>Option 1</MenuItem>
+<MenuItem value={2}>Option 2</MenuItem>
+<ListSubheader>Category 2</ListSubheader>
+<MenuItem value={3}>Option 3</MenuItem>
+<MenuItem value={4}>Option 4</MenuItem>
+</Select>
 
 
 </FormControl>
+</Grid>
+
+<Grid xs={4} sm={4} md={4} lg={4}>
+
+<form className={this.style} noValidate autoComplete="off"style={{marginLeft:"30px",marginTop:"-15px",marginBottom:"-15px"}}>  
+<SearchIcon style={{marginTop:"20px"}}/><TextField id="standard-secondary" 
+label="Standard secondary" color="secondary" />
+ 
+</form>
+</Grid>
+
+      </Grid>
+
             </CardContent>
+
+          
           </Card>
 
-        
+         
           <Table
           
             columns={this.state.columns}

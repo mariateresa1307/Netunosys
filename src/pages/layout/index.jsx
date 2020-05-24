@@ -37,13 +37,15 @@ const drawerWidth = 240;
 const styles = theme => ({
   root: {
     display: "flex",
-    boxShadow: "none"
+    
   },
   appBar: {
     backGroundColor: "#1d4688",
     transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen
+      duration: theme.transitions.duration.leavingScreen,
+      
+      
     })
   },
   appBarShift: {
@@ -51,7 +53,8 @@ const styles = theme => ({
     marginLeft: drawerWidth,
     transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen
+      duration: theme.transitions.duration.enteringScreen,
+      
     })
   },
   menuButton: {
@@ -62,10 +65,13 @@ const styles = theme => ({
   },
   drawer: {
     width: drawerWidth,
-    flexShrink: 0
+    flexShrink: 0,
+    
+   
   },
   drawerPaper: {
-    width: drawerWidth
+    width: drawerWidth,
+   
   },
   drawerHeader: {
     display: "flex",
@@ -126,14 +132,16 @@ class index extends Component {
       <div className={classes.root}>
         <CssBaseline />
         <AppBar
+        
           position="fixed"
+          elevation={0}
           className={clsx(classes.appBar, {
             [classes.appBarShift]: this.state.open
           })}
         >
           <Toolbar>
             <IconButton
-              
+              style={{color:"#ffffff"}}
               aria-label="open drawer"
               onClick={this.handleDrawerOpen}
               edge="start"
@@ -274,9 +282,10 @@ class index extends Component {
             width: "100%",
             position: "fixed",
             zIndex: "0",
-            backgroundImage:
-              "linear-gradient(to top, #aae1ed, #7db8d1, #588fb5, #3f6796, #304074)",
-            borderBottom: "3px solid #ff8d04"
+            backgroundImage: 
+            "linear-gradient(to bottom, #304074, #314177, #33427b, #34437e, #364481, #434f8b, #4f5a94, #5b659e, #757eb1, #9098c3, #abb2d6, #c7cde9)",
+          
+            borderBottom: "1px solid #ff8d04"
           }}
         ></div>
         <main

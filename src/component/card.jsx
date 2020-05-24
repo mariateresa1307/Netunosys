@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button';
 import TextInfoContent from '@mui-treasury/components/content/textInfo';
 import { useBlogTextInfoContentStyles } from '@mui-treasury/styles/textInfoContent/blog';
 import { useOverShadowStyles } from '@mui-treasury/styles/shadow/over';
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(({ breakpoints, spacing }) => ({
   root: {
@@ -95,7 +96,7 @@ const BlogCard = (props) => {
             'Git is a distributed version control system. Every dev has a working copy of the code and...'
           }
         />
-        <Button className={buttonStyles}>Read more</Button>
+        <Button className={buttonStyles} component={Link} to={props.linkTo} >Mas Informacion</Button>
       </CardContent>
     </Card>
   );

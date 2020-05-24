@@ -10,8 +10,9 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import TextField from '@material-ui/core/TextField';
+import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
+import Fab from '@material-ui/core/Fab';
 import SearchIcon from '@material-ui/icons/Search';
-
 const styles = theme => ({
   formControl: {
     Width: 30},
@@ -22,7 +23,9 @@ const styles = theme => ({
         width: '25ch',
       },
     },
-
+    fab: {
+      margin: theme.spacing(2),
+    }
     
 })
 
@@ -83,7 +86,7 @@ class index extends Component {
           <Card style={{margin:"30px"}}>
             <CardContent>
       <Grid container>
-      <Grid item xs={4} sm={4} md={4} lg={4}>
+      <Grid item xs={2} sm={2} md={2} lg={2}>
 
 <FormControl className={this.props.formControl}style={{ marginTop:"-15px",marginBottom:"-15px"}}>
   <InputLabel htmlFor="grouped-select">
@@ -104,7 +107,7 @@ class index extends Component {
  </FormControl>
 </Grid>
 
-<Grid xs={4} sm={4} md={4} lg={4}>
+<Grid xs={5} sm={5} md={5} lg={5}>
 
   <FormControl className={this.props.formControl}style={{marginLeft:"30px",marginTop:"-15px",marginBottom:"-15px"}}>
 
@@ -128,15 +131,25 @@ class index extends Component {
 </FormControl>
 </Grid>
 
-<Grid xs={4} sm={4} md={4} lg={4}>
+<Grid xs={3} sm={3} md={3} lg={3}>
 
 <form className={this.style} noValidate autoComplete="off"style={{marginLeft:"30px",marginTop:"-15px",marginBottom:"-15px"}}>  
-<SearchIcon style={{marginTop:"20px"}}/><TextField id="standard-secondary" 
+
+       
+     <TextField id="standard-secondary" 
 label="Standard secondary" color="secondary" />
  
 </form>
-</Grid>
 
+</Grid>
+<Grid xs={0} sm={0} md={0} lg={0}>
+
+<Fab  style={{    
+  backgroundImage: "radial-gradient(circle, #35437f, #344686, #34498c, #324d93, #30509a, #3b59a4, #4663ad, #506db7, #6780c6, #7d94d4, #94a8e3, #aabcf2)",
+  color:"white",marginTop:"-15px",marginBottom:"-15px"}}className={this.props.classes.fab}>
+        <SearchIcon />
+        </Fab>
+</Grid>
       </Grid>
 
             </CardContent>

@@ -6,6 +6,7 @@ import Cliente from "./cliente";
 import DSoft from "./DSoft";
 import PorInstalar from "./PorInstalar";
 import VlanInventory from "./vlanInventory";
+import IpInventory from "./IpInventory";
 import history from "../helpers/history";
 import Layout from "./layout";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
@@ -13,9 +14,9 @@ import "../assets/css/main.css";
 
 const theme = createMuiTheme({
   palette: {
-    primary: { main: "#304074" }
+    primary: { main: "#304074" },
     // secondary: { main: "#007EFF" }
-  }
+  },
 });
 
 // DEFINIR RUTAS
@@ -30,7 +31,7 @@ const index = () => (
           <Route exact path="/DSoft" component={DSoft} />
           <Route exact path="/PorInstalar" component={PorInstalar} />
           <Route exact path="/vlanInventory" component={VlanInventory} />
-        
+          <Route exact path="/ipInventory" component={IpInventory} />
         </Layout>
       </Switch>
     </Router>

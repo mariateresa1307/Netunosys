@@ -1,7 +1,7 @@
 import React, { Component, forwardRef } from "react";
 import MaterialTable from "material-table";
 
-import AddBox from "@material-ui/icons/AddBox";
+//import AddBox from "@material-ui/icons/AddBox";
 import ArrowDownward from "@material-ui/icons/ArrowDownward";
 import Check from "@material-ui/icons/Check";
 import ChevronLeft from "@material-ui/icons/ChevronLeft";
@@ -21,8 +21,14 @@ class table extends Component {
   render() {
     return (
       <MaterialTable
+        style={{
+          boxShadow:
+            " 0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 6px 5px 0px rgba(0,0,0,0.12)",
+          borderTopLeftRadius: "0px",
+          borderTopRightRadius: "0px",
+        }}
         icons={{
-          Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
+          //  Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
           Check: forwardRef((props, ref) => <Check {...props} ref={ref} />),
           Clear: forwardRef((props, ref) => <Clear {...props} ref={ref} />),
           Delete: forwardRef((props, ref) => (
@@ -60,30 +66,30 @@ class table extends Component {
           )),
           ViewColumn: forwardRef((props, ref) => (
             <ViewColumn {...props} ref={ref} />
-          ))
+          )),
         }}
         title={this.props.title}
         columns={this.props.columns}
         data={this.props.data}
         editable={{
-          onRowAdd: newData =>
-            new Promise((resolve, reject) => {
-              console.log("columna agregada");
-              resolve();
-            }),
+          //   onRowAdd: (newData) =>
+          //   new Promise((resolve, reject) => {
+          //   console.log("columna agregada");
+          // resolve();
+          // }),
           onRowUpdate: (newData, oldData) =>
             new Promise((resolve, reject) => {
               console.log("columna actualizada");
               resolve();
             }),
-          onRowDelete: oldData =>
+          onRowDelete: (oldData) =>
             new Promise((resolve, reject) => {
               console.log("columna eliminada");
               resolve();
-            })
+            }),
         }}
         options={{
-          search: true
+          search: false,
         }}
       />
     );

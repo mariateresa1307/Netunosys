@@ -15,61 +15,63 @@ const styles = (theme) => ({
   },
 });
 
-class Categories extends Component {
+class ipAdd extends Component {
   render() {
     return (
       <div>
         <Grid container spacing={2} justify="center">
-          <Grid item xs={3} sm={3} md={2} lg={2}>
+          <Grid item xs={12} sm={6} md={2} lg={2}>
             <TextField
               id="standard-basic"
-              label="Abonado"
+              label="loopback"
               required
-              style={{ width: "100%" }}
+              fullWidth
+              variant="filled"
             />
           </Grid>
 
-          <Grid item xs={3} sm={3} md={2} lg={2}>
+          <Grid item xs={12} sm={6} md={2} lg={2}>
             <TextField
               id="standard-basic"
-              label="Contrato"
+              label="Ip Asignada"
               required
-              style={{ width: "100%" }}
+              fullWidth
+              variant="filled"
             />
           </Grid>
 
-          <Grid item xs={3} sm={3} md={2} lg={2}>
+          <Grid item xs={12} sm={6} md={2} lg={2}>
             <FormControl
               className={this.props.formControl}
-              style={{ width: "100%" }}
+              fullWidth
+              variant="filled"
             >
-              <InputLabel htmlFor="grouped-select">DSLAM</InputLabel>
+              <InputLabel htmlFor="grouped-select">Equipos Core</InputLabel>
 
               <Select defaultValue="" id="grouped-select">
-                <ListSubheader>Category 1</ListSubheader>
-                <MenuItem value={1}>Option 1</MenuItem>
-                <MenuItem value={2}>Option 2</MenuItem>
-                <ListSubheader>Category 2</ListSubheader>
-                <MenuItem value={3}>Option 3</MenuItem>
-                <MenuItem value={4}>Option 4</MenuItem>
+                <MenuItem value={1}>7604 HE</MenuItem>
+                <MenuItem value={2}>7604 PQC</MenuItem>
+                <MenuItem value={3}></MenuItem>
+                <MenuItem value={4}></MenuItem>
+                <MenuItem value={5}></MenuItem>
               </Select>
             </FormControl>
           </Grid>
 
-          <Grid item xs={3} sm={3} md={2} lg={2}>
+          <Grid item xs={12} sm={6} md={2} lg={2}>
             <FormControl
               className={this.props.formControl}
-              style={{ width: "100%" }}
+              fullWidth
+              variant="filled"
             >
-              <InputLabel htmlFor="grouped-select">Ubicación</InputLabel>
+              <InputLabel htmlFor="grouped-select">Ciudad</InputLabel>
 
               <Select defaultValue="" id="grouped-select">
-                <ListSubheader>Category 1</ListSubheader>
-                <MenuItem value={1}>Option 1</MenuItem>
-                <MenuItem value={2}>Option 2</MenuItem>
-                <ListSubheader>Category 2</ListSubheader>
-                <MenuItem value={3}>Option 3</MenuItem>
-                <MenuItem value={4}>Option 4</MenuItem>
+                <MenuItem value={4}>Caracas</MenuItem>
+                <MenuItem value={5}>Guarenas/Guatire</MenuItem>
+                <MenuItem value={1}>Maracaibo</MenuItem>
+                <MenuItem value={2}>Valencia</MenuItem>
+                <MenuItem value={3}>San Cristobal</MenuItem>
               </Select>
             </FormControl>
           </Grid>
@@ -79,4 +81,4 @@ class Categories extends Component {
   }
 }
 
-export default withStyles(styles)(Categories);
+export default withStyles(styles)(ipAdd);

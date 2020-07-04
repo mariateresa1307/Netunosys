@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Grid from "@material-ui/core/Grid";
 import Table from "../../component/table";
-import CustomCard from "../../component/card";
+import CustomCard from "../../component/cardCliente";
 import ModalAdd from "../../component/modalAdd";
 import Fab from "@material-ui/core/Fab";
 import SearchIcon from "@material-ui/icons/Search";
@@ -19,9 +19,10 @@ import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
 import StepContent from "@material-ui/core/StepContent";
 import Button from "@material-ui/core/Button";
-import StepsCategories from "../../component/steps/Categories";
-import StepsRegister from "../../component/steps/Register";
-import StepsService from "../../component/steps/Service";
+import StepsCategories from "../cliente/steps/Categories";
+import StepsRegister from "../cliente/steps/Register";
+import StepsService from "../cliente/steps/Service";
+import StepsProcess from "../cliente/steps/Process";
 
 const styles = (theme) => ({
   fab: {
@@ -101,7 +102,8 @@ class index extends Component {
       case 2:
         return <StepsService />;
       case 3:
-        return <StepsRegister />;
+        return <StepsProcess />;
+
       default:
         return "Unknown step";
     }
@@ -124,24 +126,33 @@ class index extends Component {
 
     return (
       <>
-        <Grid container spacing={2}>
-          <Grid item xs={12} sm={6} md={6} lg={6}>
-            <CustomCard
-              style={{ borderBottom: "1px solid #ff8d04" }}
-              title="Desconexiones Soft"
-              content="59"
-              linkTo="/DSoft"
-              variant="azul"
-            />
-          </Grid>
+        <Grid item xs={12} style={{ zIndex: "1", marginBottom: "10px" }}>
+          <Grid container spacing={4}>
+            <Grid item xs={12} sm={4}>
+              <CustomCard
+                style={{ borderBottom: "1px solid #ff8d04" }}
+                title=" Activos"
+                content="59"
+                variant="green"
+              />
+            </Grid>
 
-          <Grid item xs={12} sm={6} md={6} lg={6}>
-            <CustomCard
-              title="Por Instalar"
-              content="50"
-              linkTo="/PorInstalar"
-              variant="amarillo"
-            />
+            <Grid item xs={12} sm={4}>
+              <CustomCard
+                style={{ borderBottom: "1px solid #ff8d04" }}
+                title=" Des.Soft"
+                content="59"
+                variant="red"
+              />
+            </Grid>
+            <Grid item xs={12} sm={4}>
+              <CustomCard
+                style={{ borderBottom: "1px solid #ff8d04" }}
+                title=" Por Instalar"
+                content="59"
+                variant="yellow"
+              />
+            </Grid>
           </Grid>
         </Grid>
 
@@ -167,12 +178,11 @@ class index extends Component {
                       <InputLabel htmlFor="grouped-select">DSLAM</InputLabel>
 
                       <Select defaultValue="" id="grouped-select">
-                        <ListSubheader>Category 1</ListSubheader>
-                        <MenuItem value={1}>Option 1</MenuItem>
-                        <MenuItem value={2}>Option 2</MenuItem>
-                        <ListSubheader>Category 2</ListSubheader>
-                        <MenuItem value={3}>Option 3</MenuItem>
-                        <MenuItem value={4}>Option 4</MenuItem>
+                        <MenuItem value={1}>DSLAM Zhone Bitstorm</MenuItem>
+                        <MenuItem value={2}>DSLAM Zhone Huawei</MenuItem>
+                        <MenuItem value={3}>DSLAM Zhone Malc</MenuItem>
+                        <MenuItem value={4}>DSLAM Zhone Mx-160</MenuItem>
+                        <MenuItem value={5}>DSLAM Zhone Mxk-319</MenuItem>
                       </Select>
                     </FormControl>
                   </Grid>
@@ -187,12 +197,55 @@ class index extends Component {
                       </InputLabel>
 
                       <Select defaultValue="" id="grouped-select">
-                        <ListSubheader>Category 1</ListSubheader>
-                        <MenuItem value={1}>Option 1</MenuItem>
-                        <MenuItem value={2}>Option 2</MenuItem>
-                        <ListSubheader>Category 2</ListSubheader>
-                        <MenuItem value={3}>Option 3</MenuItem>
-                        <MenuItem value={4}>Option 4</MenuItem>
+                        <ListSubheader>Bitstorm</ListSubheader>
+                        <MenuItem value={1}>Autana</MenuItem>
+                        <MenuItem value={2}>Embassy 1</MenuItem>
+                        <MenuItem value={3}>Embassy 2</MenuItem>
+                        <MenuItem value={4}>Folgana</MenuItem>
+                        <MenuItem value={5}>Sede Gerencial</MenuItem>
+
+                        <ListSubheader>Huawei</ListSubheader>
+                        <MenuItem value={6}>Plaza Las Americas</MenuItem>
+                        <MenuItem value={7}>Buenaventura</MenuItem>
+                        <MenuItem value={8}>Parque Cristal</MenuItem>
+                        <MenuItem value={9}>Lido</MenuItem>
+                        <MenuItem value={10}>Torre Oasis</MenuItem>
+                        <MenuItem value={11}>Parque Central</MenuItem>
+                        <MenuItem value={12}>Torre CrediCard</MenuItem>
+                        <MenuItem value={13}>Seguro Mercantil</MenuItem>
+                        <MenuItem value={14}>Parque Carabobo</MenuItem>
+                        <MenuItem value={15}>NUR</MenuItem>
+                        <MenuItem value={16}>Sambil</MenuItem>
+
+                        <ListSubheader>Malc</ListSubheader>
+                        <MenuItem value={17}>Bancaracas</MenuItem>
+                        <MenuItem value={18}>Castellana</MenuItem>
+                        <MenuItem value={19}>Cavendes</MenuItem>
+                        <MenuItem value={20}>CCCT</MenuItem>
+                        <MenuItem value={21}>Centro Peru</MenuItem>
+                        <MenuItem value={22}>Cubo Negro</MenuItem>
+
+                        <ListSubheader> Mx-160</ListSubheader>
+                        <MenuItem value={23}>El Encantado 1</MenuItem>
+                        <MenuItem value={24}>El Encantado 2</MenuItem>
+                        <MenuItem value={25}>Galipan</MenuItem>
+                        <MenuItem value={26}>La Urbina</MenuItem>
+                        <MenuItem value={27}>Torre 18 </MenuItem>
+                        <MenuItem value={28}>Sambil</MenuItem>
+                        <MenuItem value={29}>Seguro Mercantil</MenuItem>
+                        <MenuItem value={30}>Tcc 1</MenuItem>
+                        <MenuItem value={31}>Tcc 2</MenuItem>
+                        <MenuItem value={32}>Torre Uno</MenuItem>
+
+                        <ListSubheader> Mxk-319</ListSubheader>
+                        <MenuItem value={33}>Ciudad Center</MenuItem>
+                        <MenuItem value={34}>Centro Seguro La Paz</MenuItem>
+                        <MenuItem value={35}>Santa Paula</MenuItem>
+                        <MenuItem value={36}>San Ignasio</MenuItem>
+                        <MenuItem value={37}>Parque Cristal</MenuItem>
+                        <MenuItem value={38}>Lido</MenuItem>
+                        <MenuItem value={39}>Galerias Avila</MenuItem>
+                        <MenuItem value={40}>Torre Phelps</MenuItem>
                       </Select>
                     </FormControl>
                   </Grid>
@@ -202,7 +255,7 @@ class index extends Component {
                       className={this.props.formControl}
                       style={{ width: "100%" }}
                     >
-                      <InputLabel htmlFor="grouped-select">Busqueda</InputLabel>
+                      <InputLabel htmlFor="grouped-select">Estatus</InputLabel>
 
                       <Select defaultValue="" id="grouped-select">
                         <ListSubheader>Category 1</ListSubheader>
@@ -230,10 +283,13 @@ class index extends Component {
                   <Grid item xs={2} sm={2} md={2} lg={2}>
                     <Fab
                       style={{
-                        backgroundImage:
-                          "radial-gradient(circle, #35437f, #344686, #34498c, #324d93, #30509a, #3b59a4, #4663ad, #506db7, #6780c6, #7d94d4, #94a8e3, #aabcf2)",
+                        /*backgroundImage:
+                          "radial-gradient(circle, #35437f, #344686, #34498c, #324d93, #30509a, #3b59a4, #4663ad, #506db7, #6780c6, #7d94d4, #94a8e3, #aabcf2)",*/
+                        backgroundColor: "#041755",
                         color: "white",
                         float: "right",
+                        left: "-40px",
+                        marginLeft: "-10px",
                       }}
                       className={this.props.classes.fab}
                     >
@@ -243,10 +299,13 @@ class index extends Component {
                   <Grid item xs={1} sm={1} md={1} lg={1}>
                     <Fab
                       style={{
-                        backgroundImage:
-                          "radial-gradient(circle, #ff0091, #fe1796, #fd249a, #fc2e9f, #fb36a3, #fb49aa, #fb58b1, #fb66b8, #fc7dc2, #fc92cc, #fca5d5, #fbb8de)",
+                        backgroundColor: "#00D8CA",
+                        /*backgroundImage:
+                          " radial-gradient(circle, #0f9661, #129d69, #15a571, #17ac7a, #1ab482, #1bba88, #1cbf8d, #1dc593, #1ccb96, #1ad09a, #19d69d, #18dca0)",*/
                         color: "white",
                         float: "right",
+                        left: "-3px",
+                        marginLeft: "-10px",
                       }}
                       onClick={() => {
                         this.setState({ modalOpen: true });
@@ -273,6 +332,7 @@ class index extends Component {
         </Grid>
 
         <ModalAdd
+          variant="cliente"
           handleaction={this.state.modalOpen}
           close={() => {
             this.setState({
@@ -285,6 +345,7 @@ class index extends Component {
               <Stepper
                 activeStep={this.state.activeStep}
                 orientation="vertical"
+                style={{ backgroundColor: "#fff0" }}
               >
                 {steps.map((label, index) => (
                   <Step key={label}>
@@ -303,7 +364,7 @@ class index extends Component {
                             disabled={this.state.activeStep === 0}
                             onClick={this.handleBack}
                             style={{
-                              marginRight: "5px",
+                              marginRight: "4px",
                             }}
                           >
                             Back

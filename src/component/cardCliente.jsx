@@ -16,7 +16,6 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
     transition: "0.3s",
     boxShadow: "0px 8px 80px rgba(34, 35, 58, 0.2)",
     position: "relative",
-    maxWidth: 625,
     marginLeft: "auto",
     overflow: "initial",
     background: "#ffffff",
@@ -30,22 +29,20 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
       flexDirection: "row",
     },
   },
-  rojo: {
+  red: {
     backgroundColor: "#830000",
     /* backgroundImage:
       "linear-gradient(to top, #a81010, #b11214, #ba1319, #c4151d, #cd1622, #d4242b, #da2f34, #e1393d, #e54b4c, #e85b5b, #eb6a6a, #ed7878)",*/
   },
 
-  verde: {
+  green: {
     backgroundColor: "#1D552C",
     /*backgroundImage:
       "linear-gradient(to top, #056d1b, #027d1c, #008e1d, #009f1d, #00b01b, #02bd27, #02c932, #01d63d, #00e053, #01eb67, #06f57a, #0fff8d)",*/
   },
 
-  amarillo: {
-    backgroundColor: "#1D552C",
-    /*backgroundImage:
-      "linear-gradient(to top, #056d1b, #027d1c, #008e1d, #009f1d, #00b01b, #02bd27, #02c932, #01d63d, #00e053, #01eb67, #06f57a, #0fff8d)",*/
+  yellow: {
+    backgroundColor: "#A8CB00",
   },
 
   media: {
@@ -53,7 +50,7 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
     fontWeight: "bold",
     textAlign: "center",
     color: "#Fffffff",
-    width: "40%",
+    width: "70%",
     marginLeft: "auto",
     marginRight: "auto",
     marginTop: spacing(-1),
@@ -63,7 +60,7 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
     //backgroundColor: "#C2C2C2",
     position: "relative",
     [breakpoints.up("md")]: {
-      width: "40%",
+      width: "100%",
       marginLeft: spacing(0),
       marginTop: 0,
       transform: "translateX(-8px)",
@@ -103,16 +100,16 @@ const BlogCard = (props) => {
   let variantColorHelper = "";
 
   switch (props.variant) {
-    case "rojo": {
-      variantColorHelper = styles.rojo;
+    case "red": {
+      variantColorHelper = styles.red;
       break;
     }
-    case "verde": {
-      variantColorHelper = styles.verde;
+    case "green": {
+      variantColorHelper = styles.green;
       break;
     }
-    case "Amarillo": {
-      variantColorHelper = styles.amarillo;
+    case "yellow": {
+      variantColorHelper = styles.yellow;
       break;
     }
 
@@ -145,7 +142,7 @@ const BlogCard = (props) => {
             borderRadius: 15,
             color: "white",
             boxShadow: "0px 4px 32px rgba(42, 51, 56, 0.4)",
-            marginLeft: "40%",
+            marginLeft: "0px",
           }}
           component={Link}
           to={props.linkTo}
@@ -158,3 +155,59 @@ const BlogCard = (props) => {
 };
 
 export default BlogCard;
+
+/*import React, { Component } from "react";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import Button from "@material-ui/core/Button";
+import CardActions from "@material-ui/core/CardActions";
+import Typography from "@material-ui/core/Typography";
+import { Link } from "react-router-dom";
+import Grid from "@material-ui/core/Grid";
+import Fab from '@material-ui/core/Fab';
+import withStyles from "@material-ui/core/styles/withStyles";
+
+const styles = theme => ({
+  card: {
+    background: "red"
+  }
+})
+
+class card extends Component {
+  render() {
+    return (
+      <div>
+        <Card elevation={4}>
+          <CardContent>
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={7} md={8}>
+                <Typography variant="h6">{this.props.title}</Typography>
+                <Fab
+                  style={{bottom: "0px"}}
+                  variant="extended"
+                  size="small"
+                  color="primary"
+                  component={Link} to={this.props.linkTo}
+                >
+                  Mas Informacion
+                </Fab>
+              </Grid>
+              <Grid item  xs={12} sm={5} md={4}>
+                <div style={{ width: "100%", background: "red", textAlign: "center",     borderRadius: "15px" }}>
+                  <Typography variant="h1">
+                    {this.props.content}
+                  </Typography>
+
+                </div>
+              </Grid>
+
+            </Grid>
+          </CardContent>
+        </Card>
+      </div>
+    );
+  }
+}
+
+export default withStyles(styles)(card);
+*/

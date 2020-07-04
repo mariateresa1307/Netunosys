@@ -12,6 +12,11 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import CloseIcon from "@material-ui/icons/Close";
 import Slide from "@material-ui/core/Slide";
+import MuiDialogContent from "@material-ui/core/DialogContent";
+import building from "../assets/images/me.jpg";
+import fiber from "../assets/images/fiber0.jpg";
+import fiber2 from "../assets/images/fiber1.jpg";
+import { render } from "@testing-library/react";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -20,6 +25,12 @@ const useStyles = makeStyles((theme) => ({
   title: {
     marginLeft: theme.spacing(2),
     flex: 1,
+  },
+  root: {
+    margin: 0,
+    padding: theme.spacing(2),
+    //backgroundColor: ,
+    height: "50px",
   },
 }));
 
@@ -30,6 +41,14 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 export default function FullScreenDialog(props) {
   const classes = useStyles();
 
+  let bgimg = "";
+  if (props.variant === "cliente") {
+    bgimg = building;
+  } else if (props.variant === "vlan") {
+    bgimg = fiber;
+  } else if (props.variant === "ip") {
+    bgimg = fiber2;
+  }
   return (
     <div>
       <Dialog
@@ -49,7 +68,7 @@ export default function FullScreenDialog(props) {
               <CloseIcon />
             </IconButton>
             <Typography variant="h6" className={classes.title}>
-              Agregar Nuevo cliente
+              Agregar Nuevo
             </Typography>
             <Button
               autoFocus
@@ -59,7 +78,16 @@ export default function FullScreenDialog(props) {
             </Button>
           </Toolbar>
         </AppBar>
-        <div>{props.children}</div>
+        <MuiDialogContent
+          dividers
+          style={{
+            backgroundImage: `url(${bgimg})`,
+            backgroundSize: "cover",
+            backgroundPositionX: "center",
+          }}
+        >
+          {props.children}
+        </MuiDialogContent>
       </Dialog>
     </div>
   );

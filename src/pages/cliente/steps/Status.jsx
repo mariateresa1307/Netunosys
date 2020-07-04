@@ -7,6 +7,12 @@ import MenuItem from "@material-ui/core/MenuItem";
 import ListSubheader from "@material-ui/core/ListSubheader";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
+import DateFnsUtils from "@date-io/date-fns";
+import {
+  MuiPickersUtilsProvider,
+  KeyboardTimePicker,
+  KeyboardDatePicker,
+} from "@material-ui/pickers";
 
 const styles = (theme) => ({
   button: {
@@ -15,59 +21,24 @@ const styles = (theme) => ({
   },
 });
 
-class Categories extends Component {
+class Service extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      selectedDate: new Date("2014-08-18T21:11:54"),
+    };
+
+    this.setSelectedDate = this.setSelectedDate.bind(this);
+  }
+  setSelectedDate(date) {
+    this.setState({ selectedDate: date });
+  }
+
   render() {
     return (
       <div>
         <Grid container spacing={2} justify="center">
-          <Grid item xs={1} sm={1} md={1} lg={1}>
-            <FormControl
-              className={this.props.formControl}
-              style={{ width: "100%" }}
-            >
-              <InputLabel htmlFor="grouped-select">Tarjeta</InputLabel>
-
-              <Select defaultValue="" id="grouped-select">
-                <MenuItem value={1}>Option 1</MenuItem>
-                <MenuItem value={2}>Option 2</MenuItem>
-                <MenuItem value={3}>Option 3</MenuItem>
-                <MenuItem value={4}>Option 4</MenuItem>
-              </Select>
-            </FormControl>
-          </Grid>
-
-          <Grid item xs={1} sm={1} md={1} lg={1}>
-            <FormControl
-              className={this.props.formControl}
-              style={{ width: "100%" }}
-            >
-              <InputLabel htmlFor="grouped-select">Pueto</InputLabel>
-
-              <Select defaultValue="" id="grouped-select">
-                <MenuItem value={1}>Option 1</MenuItem>
-                <MenuItem value={2}>Option 2</MenuItem>
-                <MenuItem value={3}>Option 3</MenuItem>
-                <MenuItem value={4}>Option 4</MenuItem>
-              </Select>
-            </FormControl>
-          </Grid>
-
-          <Grid item xs={3} sm={3} md={2} lg={2}>
-            <FormControl
-              className={this.props.formControl}
-              style={{ width: "100%" }}
-            >
-              <InputLabel htmlFor="grouped-select">Equipo core</InputLabel>
-
-              <Select defaultValue="" id="grouped-select">
-                <MenuItem value={1}>Option 1</MenuItem>
-                <MenuItem value={2}>Option 2</MenuItem>
-                <MenuItem value={3}>Option 3</MenuItem>
-                <MenuItem value={4}>Option 4</MenuItem>
-              </Select>
-            </FormControl>
-          </Grid>
-
           <Grid item xs={3} sm={3} md={2} lg={2}>
             <FormControl
               className={this.props.formControl}
@@ -101,10 +72,26 @@ class Categories extends Component {
               </Select>
             </FormControl>
           </Grid>
+
+          <Grid item xs={3} sm={3} md={2} lg={2}>
+            <FormControl
+              className={this.props.formControl}
+              style={{ width: "100%" }}
+            >
+              <InputLabel htmlFor="grouped-select">Equipo core</InputLabel>
+
+              <Select defaultValue="" id="grouped-select">
+                <MenuItem value={1}>Option 1</MenuItem>
+                <MenuItem value={2}>Option 2</MenuItem>
+                <MenuItem value={3}>Option 3</MenuItem>
+                <MenuItem value={4}>Option 4</MenuItem>
+              </Select>
+            </FormControl>
+          </Grid>
         </Grid>
       </div>
     );
   }
 }
 
-export default withStyles(styles)(Categories);
+export default withStyles(styles)(Service);

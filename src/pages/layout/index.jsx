@@ -30,7 +30,7 @@ import Collapse from "@material-ui/core/Collapse";
 import StarBorder from "@material-ui/icons/StarBorder";
 import RemoveCircleOutlineIcon from "@material-ui/icons/RemoveCircleOutline";
 import RecentActorsIcon from "@material-ui/icons/RecentActors";
-
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 const drawerWidth = 240;
 
 const styles = (theme) => ({
@@ -38,7 +38,7 @@ const styles = (theme) => ({
     display: "flex",
   },
   appBar: {
-    backGroundColor: "#1d4688",
+    backgroundColor: "rgba(48, 64, 116, 0.5)",
     transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
@@ -76,6 +76,16 @@ const styles = (theme) => ({
     zIndex: 1,
     flexGrow: 1,
     padding: theme.spacing(3),
+    transition: theme.transitions.create("margin", {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+    marginLeft: -drawerWidth,
+  },
+  contenthome: {
+    zIndex: 1,
+    flexGrow: 1,
+    padding: theme.spacing(0),
     transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
@@ -120,13 +130,22 @@ class index extends Component {
   render() {
     const { classes } = this.props;
 
+    let Aux = null;
+
+    if (this.props.location.pathname === "/home") {
+      Aux = this.props.classes.contenthome;
+    } else {
+      Aux = this.props.classes.content;
+    }
+    //console.log(this.props.children);
+
     return (
       <div className={classes.root}>
         <CssBaseline />
         <AppBar
           position="fixed"
           elevation={0}
-          className={clsx(classes.appBar, {
+          className={clsx(classes.appBar, "headerblr", {
             [classes.appBarShift]: this.state.open,
           })}
         >
@@ -184,67 +203,40 @@ class index extends Component {
 
             <ListItem
               button
-              okey={"Client Inventory"}
-              onClick={this.handleClick}
+              key={"Clientes Inventory"}
+              component={Link}
+              to="/cliente"
             >
               <ListItemIcon>
-                <AssignmentIndIcon />
+                <RecentActorsIcon />
               </ListItemIcon>
-              <ListItemText primary="Client Inventory" />
-              {this.state.openInv ? <ExpandLess /> : <ExpandMore />}
+              <ListItemText primary={"Clientes Inventory"} />
             </ListItem>
 
-            <Collapse in={this.state.openInv} timeout="auto" unmountOnExit>
-              <Link to="/cliente">
-                <List component="div" disablePadding>
-                  <ListItem button className={classes.nested}>
-                    <ListItemIcon>
-                      <RecentActorsIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Clientes Inventory" />
-                  </ListItem>
-                </List>
-              </Link>
+            <ListItem
+              button
+              key={"Vlan Inventory"}
+              component={Link}
+              to="/vlanInventory"
+            >
+              <ListItemIcon>
+                <AssignmentIcon />
+              </ListItemIcon>
+              <ListItemText primary={"Vlan Inventory"} />
+            </ListItem>
 
-              <Link to="/DSoft">
-                <List component="div" disablePadding>
-                  <ListItem button className={classes.nested}>
-                    <ListItemIcon>
-                      <RemoveCircleOutlineIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Desconectados Soft" />
-                  </ListItem>
-                </List>
-              </Link>
+            <ListItem
+              button
+              key={"Super Bloques IP"}
+              component={Link}
+              to="/IpInventory"
+            >
+              <ListItemIcon>
+                <RouterIcon />
+              </ListItemIcon>
+              <ListItemText primary={"Super Bloques IP"} />
+            </ListItem>
 
-              <Link to="/PorInstalar">
-                <List component="div" disablePadding>
-                  <ListItem button className={classes.nested}>
-                    <ListItemIcon>
-                      <StarBorder />
-                    </ListItemIcon>
-                    <ListItemText primary="Por Instalar" />
-                  </ListItem>
-                </List>
-              </Link>
-            </Collapse>
-
-            <Link to="/vlanInventory">
-              <ListItem button key={"Vlan Inventory"}>
-                <ListItemIcon>
-                  <AssignmentIcon />
-                </ListItemIcon>
-                <ListItemText primary={"Vlan Inventory"} />
-              </ListItem>
-            </Link>
-            <Link to="/IpInventory">
-              <ListItem button key={"Super Bloques IP"}>
-                <ListItemIcon>
-                  <RouterIcon />
-                </ListItemIcon>
-                <ListItemText primary={"Super Bloques IP"} />
-              </ListItem>
-            </Link>
             <ListItem button key={"Admin Usuario"}>
               <ListItemIcon>
                 <SettingsInputAntennaIcon />
@@ -268,6 +260,13 @@ class index extends Component {
               </ListItemIcon>
               <ListItemText primary={"Usuarios"} />
             </ListItem>
+
+            <ListItem button component={Link} key={"Cerrar Sesion "} to="/">
+              <ListItemIcon>
+                <ExitToAppIcon />
+              </ListItemIcon>
+              <ListItemText primary={"Cerrar Sesion"} />
+            </ListItem>
           </List>
         </Drawer>
 
@@ -278,18 +277,20 @@ class index extends Component {
             width: "100%",
             position: "fixed",
             zIndex: "0",
-            backgroundImage:
+            /*backgroundImage:
               "linear-gradient(to bottom, #304074, #314177, #33427b, #34437e, #364481, #434f8b, #4f5a94, #5b659e, #757eb1, #9098c3, #abb2d6, #c7cde9)",
-
+*/ backgroundImage:
+              "linear-gradient(to bottom, #304074, #304074, #304074, #304074, #304074, #2d3d71, #2b3a6d, #28376a, #223063, #1c2a5c, #162355, #0f1d4e)",
             borderBottom: "1px solid #ff8d04",
           }}
         ></div>
         <main
-          className={clsx(classes.content, {
+          className={clsx(Aux, {
             [classes.contentShift]: this.state.open,
           })}
         >
           <div className={classes.drawerHeader} />
+
           {this.props.children}
         </main>
       </div>

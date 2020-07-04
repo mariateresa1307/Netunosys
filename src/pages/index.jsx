@@ -3,8 +3,6 @@ import { Route, Switch, Router } from "react-router-dom";
 import Login from "./login";
 import Home from "./home";
 import Cliente from "./cliente";
-import DSoft from "./DSoft";
-import PorInstalar from "./PorInstalar";
 import VlanInventory from "./vlanInventory";
 import IpInventory from "./IpInventory";
 import history from "../helpers/history";
@@ -28,8 +26,6 @@ const index = () => (
         <Layout>
           <Route exact path="/home" component={Home} />
           <Route exact path="/cliente" component={Cliente} />
-          <Route exact path="/DSoft" component={DSoft} />
-          <Route exact path="/PorInstalar" component={PorInstalar} />
           <Route exact path="/vlanInventory" component={VlanInventory} />
           <Route exact path="/ipInventory" component={IpInventory} />
         </Layout>

@@ -13,7 +13,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import AddIcon from "@material-ui/icons/Add";
 import Divider from "@material-ui/core/Divider";
 import CustomCard from "../../component/card";
-import ModalAdd from "../../component/modalAdd";
+import CustomModal from "../../component/customModal";
 import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
@@ -313,7 +313,7 @@ class index extends Component {
                   </Grid>
                 </Grid>
               </div>
-              <Divider variant="middle" style={{ marginTop: "10px" }} />
+              <Divider variant="middle" style={{ marginTop: "-1px" }} />
             </div>
           </Grid>
           <Grid item xs={12} sm={12} md={12} lg={12}>
@@ -325,7 +325,7 @@ class index extends Component {
           </Grid>
         </Grid>
 
-        <ModalAdd
+        <CustomModal
           handleaction={this.state.modalOpen}
           variant="vlan"
           close={() => {
@@ -380,7 +380,7 @@ class index extends Component {
               </Stepper>
             </Grid>
           </Grid>
-        </ModalAdd>
+        </CustomModal>
       </>
     );
   }

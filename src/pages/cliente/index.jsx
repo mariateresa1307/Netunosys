@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Grid from "@material-ui/core/Grid";
 import Table from "../../component/table";
 import CustomCard from "../../component/cardCliente";
-import ModalAdd from "../../component/modalAdd";
+import CustomModal from "../../component/customModal";
 import Fab from "@material-ui/core/Fab";
 import SearchIcon from "@material-ui/icons/Search";
 import withStyles from "@material-ui/core/styles/withStyles";
@@ -23,7 +23,9 @@ import StepsCategories from "../cliente/steps/Categories";
 import StepsRegister from "../cliente/steps/Register";
 import StepsService from "../cliente/steps/Service";
 import StepsProcess from "../cliente/steps/Process";
-
+import HelpIcon from "@material-ui/icons/Help";
+import IconButton from "@material-ui/core/IconButton";
+import Tooltip from "@material-ui/core/Tooltip";
 const styles = (theme) => ({
   fab: {
     margin: theme.spacing(2),
@@ -267,7 +269,7 @@ class index extends Component {
                       </Select>
                     </FormControl>
                   </Grid>
-                  <Grid item xs={3} sm={3} md={3} lg={3}>
+                  <Grid item xs={2} sm={2} md={2} lg={2}>
                     <FormControl
                       className={this.style}
                       noValidate
@@ -279,6 +281,14 @@ class index extends Component {
                         color="secondary"
                       />
                     </FormControl>
+                  </Grid>
+
+                  <Grid item xs={1} sm={1} md={1} lg={1}>
+                    <Tooltip title="Solo para Buscar por Abonado, Vlan y Contarto">
+                      <IconButton aria-label="delete">
+                        <HelpIcon />
+                      </IconButton>
+                    </Tooltip>
                   </Grid>
                   <Grid item xs={2} sm={2} md={2} lg={2}>
                     <Fab
@@ -318,7 +328,7 @@ class index extends Component {
                   </Grid>
                 </Grid>
               </div>
-              <Divider variant="middle" style={{ marginTop: "10px" }} />
+              <Divider variant="middle" style={{ marginTop: "-16px" }} />
             </div>
           </Grid>
 
@@ -331,7 +341,7 @@ class index extends Component {
           </Grid>
         </Grid>
 
-        <ModalAdd
+        <CustomModal
           variant="cliente"
           handleaction={this.state.modalOpen}
           close={() => {
@@ -386,7 +396,7 @@ class index extends Component {
               </Stepper>
             </Grid>
           </Grid>
-        </ModalAdd>
+        </CustomModal>
       </>
     );
   }

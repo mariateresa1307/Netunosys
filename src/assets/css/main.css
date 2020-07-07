@@ -24,7 +24,7 @@ body {
 .h1 {
   position: absolute;
   color: white;
-  top: 60%;
+  top: 50%;
   margin-top: -168px;
   left: 50%;
   margin-left: -250px;
@@ -33,4 +33,30 @@ body {
 
 .headerblr {
   backdrop-filter: blur(10px) !important;
+}
+
+.login {
+  position: absolute;
+  color: white;
+  top: 30%;
+  margin-top: auto;
+  left: 50%;
+  margin-left: -610px;
+  height: 30px;
+}
+
+.loginParticles {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 0;
+}
+
+.panelIzqierdo {
+  display: "none";
+  z-index: 5;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
 }

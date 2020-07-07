@@ -236,13 +236,6 @@ class index extends Component {
               </ListItemIcon>
               <ListItemText primary={"Super Bloques IP"} />
             </ListItem>
-
-            <ListItem button key={"Admin Usuario"}>
-              <ListItemIcon>
-                <SettingsInputAntennaIcon />
-              </ListItemIcon>
-              <ListItemText primary={"Admin Usuario"} />
-            </ListItem>
           </List>
 
           <Divider />
@@ -261,6 +254,13 @@ class index extends Component {
               <ListItemText primary={"Usuarios"} />
             </ListItem>
 
+            <ListItem button key={"Admin Usuario"}>
+              <ListItemIcon>
+                <SettingsInputAntennaIcon />
+              </ListItemIcon>
+              <ListItemText primary={"Admin Usuario"} />
+            </ListItem>
+            <Divider />
             <ListItem button component={Link} key={"Cerrar Sesion "} to="/">
               <ListItemIcon>
                 <ExitToAppIcon />

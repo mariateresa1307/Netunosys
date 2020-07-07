@@ -59,7 +59,7 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
     marginTop: spacing(-1),
     height: 5,
     paddingBottom: "200px",
-    borderRadius: spacing(1),
+    borderRadius: "3px",
     //backgroundColor: "#C2C2C2",
     position: "relative",
     [breakpoints.up("md")]: {
@@ -123,7 +123,7 @@ const BlogCard = (props) => {
   return (
     <Card className={cx(styles.root, shadowStyles.root)}>
       <div className={cx(styles.media, variantColorHelper)}>
-        <div style={{ marginTop: "35%", color: "#ffff" }}>50</div>
+        <div style={{ marginTop: "30%", color: "#ffff" }}>50</div>
       </div>
       <CardContent>
         <div classes={contentStyles}>

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import LogoNetuno from "../../assets/images/logo_netuno1.png";
-import vid from "../../assets/vid/Fiber Optic Network Background - Royalty free footage.mp4";
 import vide from "../../assets/vid/High Tech Digital Lines Background.mp4";
 import { Animated } from "react-animated-css";
 class index extends Component {

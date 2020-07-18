@@ -9,17 +9,22 @@ export const ditto = (
 ) => {
   switch (actions.type) {
     case STATUS.SUCCESS: {
-      state.data = actions.data;
-      state.isLoading = false;
-      return state;
+      return {
+        ...state,
+        data: actions.data
+      };
     }
     case STATUS.ERROR: {
-      state.isLoading = false;
-      return state;
+      return {
+        ...state,
+        isLoading: false
+      };
     }
     case STATUS.LOADING: {
-      state.isLoading = true;
-      return state;
+      return {
+        ...state,
+        isLoading: true
+      };
     }
     default: {
       return state;

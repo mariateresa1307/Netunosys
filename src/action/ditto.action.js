@@ -10,7 +10,7 @@ export const getAction = () => {
   return (dispatch) => {
     GET().then(
       (response) => {
-        dispatch(succes(response));
+        dispatch(succes(response.data));
       },
       (error) => {
         console.log(error);

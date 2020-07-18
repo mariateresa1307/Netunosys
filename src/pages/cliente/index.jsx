@@ -28,6 +28,8 @@ import IconButton from "@material-ui/core/IconButton";
 import Tooltip from "@material-ui/core/Tooltip";
 import { getAction } from "../../action/ditto.action";
 import { connect } from "react-redux";
+
+
 const styles = (theme) => ({
   fab: {
     margin: theme.spacing(2),
@@ -409,7 +411,6 @@ class index extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log("ssssssssssss; ", state);
   return {
     ditto: state.ditto,
   };

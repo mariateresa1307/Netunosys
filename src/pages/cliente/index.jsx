@@ -26,6 +26,8 @@ import StepsProcess from "../cliente/steps/Process";
 import HelpIcon from "@material-ui/icons/Help";
 import IconButton from "@material-ui/core/IconButton";
 import Tooltip from "@material-ui/core/Tooltip";
+import { getAction } from "../../action/ditto.action";
+import { connect } from "react-redux";
 const styles = (theme) => ({
   fab: {
     margin: theme.spacing(2),
@@ -302,6 +304,9 @@ class index extends Component {
                         marginLeft: "-10px",
                       }}
                       className={this.props.classes.fab}
+                      onClick={() => {
+                        this.props.dispatch(getAction());
+                      }}
                     >
                       <SearchIcon />
                     </Fab>
@@ -333,6 +338,7 @@ class index extends Component {
           </Grid>
 
           <Grid item xs={12} sm={12} md={12} lg={12}>
+            {JSON.stringify(this.props.ditto)}
             <Table
               columns={this.state.columns}
               data={this.state.data}
@@ -401,4 +407,11 @@ class index extends Component {
     );
   }
 }
-export default withStyles(styles)(index);
+
+const mapStateToProps = (state) => {
+  console.log("ssssssssssss; ", state);
+  return {
+    ditto: state.ditto,
+  };
+};
+export default connect(mapStateToProps)(withStyles(styles)(index));

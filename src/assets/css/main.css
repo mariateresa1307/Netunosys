@@ -37,10 +37,9 @@ body {
 
 .login {
   position: absolute;
-  color: white;
-  top: 30%;
+  top: 40%;
   margin-top: auto;
-  left: 50%;
+  left: 40%;
   margin-left: -610px;
   height: 30px;
 }

@@ -14,6 +14,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Particles from "react-particles-js";
 import LogoNetuno from "../../assets/images/logo_netuno1.png";
+import Netuno from "../../assets/images/netuno2.png";
 import { Animated } from "react-animated-css";
 
 import Card from "@material-ui/core/Card";
@@ -120,7 +121,7 @@ export default () => {
               isVisible={true}
               className="login"
             >
-              <img src={LogoNetuno} alt="" />
+              <img src={LogoNetuno} alt="" style={{ width: " 574px" }} />
             </Animated>
           </div>
         </Grid>
@@ -139,14 +140,7 @@ export default () => {
                   textAlign: "center",
                 }}
               >
-                <Avatar className={classes.avatar}>
-                  <LockOutlinedIcon
-                    style={{
-                      top: "7px",
-                      position: "relative",
-                    }}
-                  />
-                </Avatar>
+                <img src={Netuno} alt="" />
               </div>
               <Typography component="h1" variant="h5" align="center">
                 Sign in

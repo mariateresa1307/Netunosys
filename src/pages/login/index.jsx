@@ -1,197 +1,297 @@
-import React from "react";
-import Avatar from "@material-ui/core/Avatar";
-import Button from "@material-ui/core/Button";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import TextField from "@material-ui/core/TextField";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
-import Link from "@material-ui/core/Link";
-import Paper from "@material-ui/core/Paper";
-import Box from "@material-ui/core/Box";
-import Grid from "@material-ui/core/Grid";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
+import React from 'react';
+import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import TextField from '@material-ui/core/TextField';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import Link from '@material-ui/core/Link';
+import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
+import { Card } from '@material-ui/core';
+import header from "../../assets/images/2logonet.png";
+import Divider from "@material-ui/core/Divider";
 import Particles from "react-particles-js";
-import LogoNetuno from "../../assets/images/logo_netuno1.png";
-import Netuno from "../../assets/images/netuno2.png";
-import { Animated } from "react-animated-css";
-
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
-import { red } from "@material-ui/core/colors";
 
 function Copyright() {
   return (
+    
     <Typography variant="body2" color="textSecondary" align="center">
-      {"Copyright © "}
+      {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
-        NetUno
-      </Link>{" "}
+       NetUno
+      </Link>{' '}
       {new Date().getFullYear()}
-      {"."}
+      {'.'}
+     
     </Typography>
+   
   );
 }
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    height: "100%",
-    backgroundColor: "#060a25",
+  body:{
+    backgroundColor:"#030320",
+    height: "100%"
   },
-
   paper: {
-    margin: theme.spacing(8, 4),
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
+   
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
   },
   avatar: {
-    display: "inline-block",
-    margin: theme.spacing(6),
-    backgroundColor: theme.palette.primary.main,
+    margin: theme.spacing(1),
+    backgroundColor: theme.palette.secondary.main,
   },
   form: {
-    width: "100%", // Fix IE 11 issue.
-    marginTop: theme.spacing(5),
+    width: '100%', // Fix IE 11 issue.
+    marginTop: theme.spacing(1),
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
-
-  panelIzqierdo: {
-    width: "100%",
-    height: "100%",
-  },
-
-  [theme.breakpoints.down("md")]: {
-    panelIzqierdo: {
-      display: "none",
-    },
-  },
-  [theme.breakpoints.up("md")]: {
-    panelIzqierdo: {
-      display: "block",
-    },
-  },
+  
 }));
 
-export default () => {
+export default function SignIn() {
   const classes = useStyles();
 
-  return (
-    <>
-      <Particles
-        className="loginParticles"
-        params={{
-          particles: {
-            number: {
-              value: 140,
-            },
-            lineLinked: {
-              color: "#f26807",
-            },
-            density: {
-              enable: true,
-            },
-            size: {
-              value: 3,
-            },
-          },
+  React.useEffect(() => {
+    const r = document.getElementById("root");
+    r.style.height = "100%"
 
-          interactivity: {
-            events: {
-              onhover: {
-                enable: true,
-                mode: "repulse",
-              },
+    const b = document.getElementsByTagName("body");
+    b[0].style.height = "100%"
+
+    const h = document.getElementsByTagName("html");
+    h[0].style.height = "100%"
+
+ 
+
+
+  }, [])
+
+
+
+  return ( 
+
+ 
+
+  <div className={classes.body} >
+    
+    
+
+         <Particles 
+         style={{
+           position: "absolute"
+         }}
+        
+        params={{
+          "particles": {
+            "number": {
+              "value": 200,
+              "density": {
+                "enable": true,
+                "value_area": 881.8766334760375
+              }
             },
+            "color": {
+              "value": "#ffffff"
+            },
+            "shape": {
+              "type": "edge",
+              "stroke": {
+                "width": 0,
+                "color": "#000000"
+              },
+              "polygon": {
+                "nb_sides": 5
+              },
+              "image": {
+                "src": "img/github.svg",
+                "width": 100,
+                "height": 100
+              }
+            },
+            "opacity": {
+              "value": 0.5,
+              "random": false,
+              "anim": {
+                "enable": false,
+                "speed": 1,
+                "opacity_min": 0.1,
+                "sync": false
+              }
+            },
+            "size": {
+              "value": 2,
+              "random": true,
+              "anim": {
+                "enable": false,
+                "speed": 40,
+                "size_min": 0.1,
+                "sync": false
+              }
+            },
+            "line_linked": {
+              "enable": true,
+              "distance": 128.27296486924183,
+              "color": "#ffffff",
+              "opacity": 0.352750653390415,
+              "width": 0.9620472365193136
+            },
+            "move": {
+              "enable": true,
+              "speed": 6.413648243462092,
+              "direction": "none",
+              "random": true,
+              "straight": false,
+              "out_mode": "out",
+              "bounce": false,
+              "attract": {
+                "enable": false,
+                "rotateX": 641.3648243462092,
+                "rotateY": 1200
+              }
+            }
+          },
+          "interactivity": {
+            "detect_on": "canvas",
+            "events": {
+              "onhover": {
+                "enable": true,
+                "mode": "repulse"
+              },
+              "onclick": {
+                "enable": true,
+                "mode": "push"
+              },
+              "resize": true
+            },
+            "modes": {
+              "grab": {
+                "distance": 400,
+                "line_linked": {
+                  "opacity": 1
+                }
+              },
+              "bubble": {
+                "distance": 400,
+                "size": 40,
+                "duration": 2,
+                "opacity": 8,
+                "speed": 3
+              },
+              "repulse": {
+                "distance": 200,
+                "duration": 0.4
+              },
+              "push": {
+                "particles_nb": 4
+              },
+              "remove": {
+                "particles_nb": 2
+              }
+            }
           },
         }}
       />
+        
+       
+    
 
-      <Grid container className={classes.root}>
-        <Grid item xs={false} sm={false} md={7} lg={6}>
-          <div className={classes.panelIzqierdo}>
-            <Animated
-              animationIn="lightSpeedIn"
-              animationOut="fadeOutDown"
-              animationInDuration={1800}
-              animationOutDuration={1800}
-              isVisible={true}
-              className="login"
-            >
-              <img src={LogoNetuno} alt="" style={{ width: " 574px" }} />
-            </Animated>
-          </div>
-        </Grid>
+<Grid container justify="center">
+  
+  <Grid item xs={10} sm={5} style={{zIndex: "20"}}>
 
-        <Grid item xs={12} sm={12} md={5} lg={6} style={{ zIndex: 1 }}>
-          <Card
-            style={{
-              height: "100%",
-            }}
-            elevation={6}
-          >
-            <CardContent>
-              <div
-                style={{
-                  width: "100%",
-                  textAlign: "center",
-                }}
-              >
-                <img src={Netuno} alt="" />
-              </div>
-              <Typography component="h1" variant="h5" align="center">
-                Sign in
-              </Typography>
-              <form className={classes.form} noValidate>
-                <TextField
-                  variant="outlined"
-                  margin="normal"
-                  required
-                  fullWidth
-                  id="User"
-                  label="User"
-                  name="User"
-                  autoComplete="User"
-                  autoFocus
-                />
-                <TextField
-                  variant="outlined"
-                  margin="normal"
-                  required
-                  fullWidth
-                  name="password"
-                  label="Password"
-                  type="password"
-                  id="password"
-                  autoComplete="current-password"
-                />
-                <FormControlLabel
-                  control={<Checkbox value="remember" color="primary" />}
-                  label="Remember me"
-                />
-                <Button
-                  type="submit"
-                  fullWidth
-                  variant="contained"
-                  color="primary"
-                  className={classes.submit}
-                  href="/home"
-                  style={{ backgroundColor: "#060a25" }}
-                >
-                  Sign In
-                </Button>
+  <Card style={{  marginTop:"25%" }}>
 
-                <Box mt={5}>
-                  <Copyright />
-                </Box>
-              </form>
-            </CardContent>
-          </Card>
-        </Grid>
+  
+<CssBaseline />
+<div className={classes.paper} style={{   padding:"70px"}}>
+ 
+  <img
+    src={header}
+    alt="Administradora Yuruary"
+    style={{
+      width: "403px",
+      textAlign: "center",
+      display: "block",
+      margin: "auto",
+      marginTop: "-22px",
+      marginBottom: "20px"
+    }}
+  />
+ <Divider/>
+  <Typography component="h1" variant="h5">
+    Sign in
+  </Typography>
+  <form className={classes.form} noValidate>
+    <TextField
+      variant="outlined"
+      margin="normal"
+      required
+      fullWidth
+      id="email"
+      label="Email Address"
+      name="email"
+      autoComplete="email"
+      autoFocus
+    />
+    <TextField
+      variant="outlined"
+      margin="normal"
+      required
+      fullWidth
+      name="password"
+      label="Password"
+      type="password"
+      id="password"
+      autoComplete="current-password"
+    />
+    <FormControlLabel
+      control={<Checkbox value="remember" color="primary" />}
+      label="Remember me"
+    />
+    <Button
+      type="submit"
+      fullWidth
+      variant="contained"
+      color="primary"
+      className={classes.submit}
+    >
+      Sign In
+    </Button>
+    <Grid container>
+      <Grid item xs>
+        <Link  href="/home" variant="body2">
+          Forgot password?
+        </Link>
       </Grid>
-    </>
+      <Grid item>
+        <Link href="#" variant="body2">
+          {"Don't have an account? Sign Up"}
+        </Link>
+      </Grid>
+    </Grid>
+  </form>
+</div>
+</Card>
+
+  </Grid>
+  <Box mt={8} style={{position:"relative", marginTop:"0px", color:"white" }}>
+        <Copyright />
+      </Box>
+</Grid>
+  
+   
+ 
+   </div>
+   
   );
-};
+}

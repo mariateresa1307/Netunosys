@@ -1,35 +1,28 @@
-import React, { Component } from "react";
-import LogoNetuno from "../../assets/images/logo_netuno1v.png";
-import vide from "../../assets/vid/High Tech Digital Lines Background.mp4";
-import { Animated } from "react-animated-css";
-class index extends Component {
-  constructor() {
-    super();
-    this.state = {
-      visible: false,
-    };
-  }
+import React, { useEffect } from "react";
+import img1 from "../../assets/images/2logonet.png";
 
-  render() {
-    return (
-      <div className="contVid">
-        <Animated
-          animationIn="lightSpeedIn"
-          animationOut="fadeOutDown"
-          animationInDuration={1800}
-          animationOutDuration={1800}
-          isVisible={true}
-          className="h1"
-        >
-          <img src={LogoNetuno} alt="" />
-        </Animated>
-        <video className="background-video" loop autoPlay muted>
-          <source src={vide} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-    );
-  }
-}
+const IndexHome = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
-export default index;
+  return (
+    <>
+      <img
+        src={img1}
+        alt="Administradora yuruary"
+        style={{
+          marginLeft: "auto",
+          marginRight: "auto",
+          display: "block",
+          marginTop: "240px",
+          maxWidth: "350px",
+          width: "100%",
+          marginBottom: "30px"
+        }}
+      />
+    </>
+  );
+};
+
+export default IndexHome;

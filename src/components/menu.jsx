@@ -38,8 +38,8 @@ const Menu = (props) => {
   const menu = useSelector((store) => store.menu);
 
   const [state, setState] = useState({
-    collapInmueble: false,
-    collapPropietario: false,
+    collapCliente: false,
+    collapVlan: false,
     collapConfiguracion: false
   });
 
@@ -91,139 +91,78 @@ const Menu = (props) => {
             <ListItemText primary={"Inicio"} />
           </ListItem>
 
-          <ListItem button onClick={() => handleCollapse("collapInmueble")}>
+          <ListItem button onClick={() => handleCollapse("collapCliente")}>
             <ListItemIcon style={{ marginRight: "-15px" }}>
               <HomeWorkIcon />
             </ListItemIcon>
-            <ListItemText primary={"Propiedad"} />
+            <ListItemText primary={"Clientes"} />
             {state.inmueble ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
           <div style={{ backgroundColor: "#b5b4b21f" }}>
-            <Collapse in={state.collapInmueble} timeout="auto" unmountOnExit style={{ marginLeft: "25px" }}>
+            <Collapse in={state.collapCliente} timeout="auto" unmountOnExit style={{ marginLeft: "25px" }}>
               <List component="div" disablePadding>
                 <ListItem button onClick={() => goTo(URL_PAGES.inmueble.path)}>
                   <ListItemIcon style={{ marginRight: "-15px" }}>
                     <HomeIcon />
                   </ListItemIcon>
-                  <ListItemText primary={"Gestión Propiedad "} />
-                </ListItem>
-                <ListItem button onClick={() => goTo("/reporteInmuheble")} disabled>
-                  <ListItemIcon style={{ marginRight: "-15px" }}>
-                    <ListAltIcon />
-                  </ListItemIcon>
-                  <ListItemText primary="Reportes Propiedad" />
+                  <ListItemText primary={"Clientes IP "} />
                 </ListItem>
               </List>
             </Collapse>
           </div>
 
-          <ListItem button onClick={() => handleCollapse("collapPropietario")}>
+          <ListItem button onClick={() => handleCollapse("collapVlan")}>
             <ListItemIcon style={{ marginRight: "-15px" }}>
               <RecentActorsIcon />
             </ListItemIcon>
-            <ListItemText primary={"Propietario"} />
-            {state.collapPropietario ? <ExpandLess /> : <ExpandMore />}
+            <ListItemText primary={"Asignacion de Vlan"} />
+            {state.collapVlan ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
 
           <div style={{ backgroundColor: "#b5b4b21f" }}>
-            <Collapse in={state.collapPropietario} timeout="auto" unmountOnExit style={{ marginLeft: "25px" }}>
+            <Collapse in={state.collapVlan} timeout="auto" unmountOnExit style={{ marginLeft: "25px" }}>
               <List component="div" disablePadding>
                 <ListItem button onClick={() => goTo(URL_PAGES.gestionPropietario.path)}>
                   <ListItemIcon style={{ marginRight: "-15px" }}>
                     <PersonIcon />
                   </ListItemIcon>
-                  <ListItemText primary=" Gestion Propietario  " />
+                  <ListItemText primary=" Gestion de Vlan  " />
                 </ListItem>
 
                 <ListItem button onClick={() => goTo(URL_PAGES.gestionBeneficiario.path)}>
                   <ListItemIcon style={{ marginRight: "-15px" }}>
                     <FaceIcon />
                   </ListItemIcon>
-                  <ListItemText primary=" Gestion Beneficiario  " />
+                  <ListItemText primary=" Gestion Dslam  " />
                 </ListItem>
 
-                <ListItem button onClick={() => goTo("/reportePropietario")} disabled>
-                  <ListItemIcon style={{ marginRight: "-15px" }}>
-                    <InsertChartIcon />
-                  </ListItemIcon>
-                  <ListItemText primary=" Reportes Propietario  " />
-                </ListItem>
-
-                <ListItem button onClick={() => goTo("/FacturacionPropietario")} disabled>
-                  <ListItemIcon style={{ marginRight: "-15px" }}>
-                    <ReceiptIcon />
-                  </ListItemIcon>
-                  <ListItemText primary="Facturacion Propietario" />
-                </ListItem>
-
-                <ListItem button onClick={() => goTo("/EstadoCuentaPropietario")} disabled>
-                  <ListItemIcon style={{ marginRight: "-15px" }}>
-                    <ListAltIcon />
-                  </ListItemIcon>
-                  <ListItemText primary="Estado de cuenta" />
-                </ListItem>
-
-                <ListItem button onClick={() => goTo(URL_PAGES.liquidacion.path)}>
-                  <ListItemIcon style={{ marginRight: "-15px" }}>
-                    <PaymentIcon />
-                  </ListItemIcon>
-                  <ListItemText primary="Liquidacion de Pagos" />
-                </ListItem>
+            
               </List>
             </Collapse>
           </div>
 
-          <ListItem button onClick={() => handleCollapse("collapAlquiler")}>
+          <ListItem button onClick={() => handleCollapse("collapIP")}>
             <ListItemIcon style={{ marginRight: "-15px" }}>
               <HouseIcon />
             </ListItemIcon>
-            <ListItemText primary={"Alquiler"} />
-            {state.collapAlquiler ? <ExpandLess /> : <ExpandMore />}
+            <ListItemText primary={"IP"} />
+            {state.collapIP ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
 
           <div style={{ backgroundColor: "#b5b4b21f" }}>
-            <Collapse in={state.collapAlquiler} timeout="auto" unmountOnExit style={{ marginLeft: "25px" }}>
+            <Collapse in={state.collapIP} timeout="auto" unmountOnExit style={{ marginLeft: "25px" }}>
               <List component="div" disablePadding>
-                <ListItem button onClick={() => goTo(URL_PAGES.alquiler.path)}>
+                <ListItem button onClick={() => goTo(URL_PAGES.ip.path)}>
                   <ListItemIcon style={{ marginRight: "-15px" }}>
                     <ApartmentIcon />
                   </ListItemIcon>
-                  <ListItemText primary={"Gestión Alquiler"} />
+                  <ListItemText primary={"Gestión IP"} />
                 </ListItem>
-                <ListItem button onClick={() => goTo(URL_PAGES.inquilino.path)}>
-                  <ListItemIcon style={{ marginRight: "-15px" }}>
-                    <ApartmentIcon />
-                  </ListItemIcon>
-                  <ListItemText primary={"Gestión Inquilino"} />
-                </ListItem>
+                
 
-                <ListItem button onClick={() => goTo(URL_PAGES.caja.path)}>
-                  <ListItemIcon style={{ marginRight: "-15px" }}>
-                    <PaymentIcon />
-                  </ListItemIcon>
-                  <ListItemText primary={"Caja"} />
-                </ListItem>
+         
 
-                <ListItem button >
-                  <ListItemIcon style={{ marginRight: "-15px" }}>
-                    <BrandingWatermarkIcon />
-                  </ListItemIcon>
-                  <ListItemText primary={""} />
-                </ListItem>
-
-                <ListItem button onClick={() => goTo("/FacturacionAlquiler")} disabled>
-                  <ListItemIcon style={{ marginRight: "-15px" }}>
-                    <ReceiptIcon />
-                  </ListItemIcon>
-                  <ListItemText primary="Facturacion de Aquileres" />
-                </ListItem>
-
-                <ListItem button onClick={() => goTo(URL_PAGES.alquilerReportes.path)}>
-                  <ListItemIcon style={{ marginRight: "-15px" }}>
-                    <DescriptionIcon />
-                  </ListItemIcon>
-                  <ListItemText primary="Reportes" />
-                </ListItem>
+                
               </List>
             </Collapse>
           </div>
@@ -239,22 +178,17 @@ const Menu = (props) => {
           <div style={{ backgroundColor: "#b5b4b21f" }}>
             <Collapse in={state.collapConfiguracion} timeout="auto" unmountOnExit style={{ marginLeft: "25px" }}>
               <List component="div" disablePadding>
-                <ListItem button onClick={() => goTo(URL_PAGES.configMonedas.path)}>
-                  <ListItemIcon style={{ marginRight: "-15px" }}>
-                    <AutorenewIcon />
-                  </ListItemIcon>
-                  <ListItemText primary={""} />
-                </ListItem>
 
                 <ListItem button onClick={() => goTo(URL_PAGES.configUsuarios.path)}>
                   <ListItemIcon style={{ marginRight: "-15px" }}>
                     <AccountCircleIcon />
                   </ListItemIcon>
-                  <ListItemText primary={""} />
+                  <ListItemText primary={"Gestion de Usuarios"} />
                 </ListItem>
               </List>
             </Collapse>
           </div>
+          
           <Divider />
           <ListItem button >
             <ListItemIcon style={{ marginRight: "-15px" }}>

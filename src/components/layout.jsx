@@ -110,7 +110,7 @@ export default function Layout(props) {
   const dispatch = useDispatch();
 
 
-  const [cambioDelDiaUSD] = useSelector((store) => [store.cambioDelDiaUSD]);
+  
 
   
   const [notification, setNotification] = React.useState(false);
@@ -137,13 +137,7 @@ export default function Layout(props) {
           <Typography variant="h6" className={classes.title}>
             Netuno
           </Typography>
-          <Tooltip title={cambioDelDiaUSD ? moment(cambioDelDiaUSD.fecha).format("dddd, DD MMMM YYYY") : "Cargando..."}>
-            <Button style={{ color: "white" }} onClick={() => window.open("http://www.bcv.org.ve/", "_blank")}>
-              {" "}
-              <MonetizationOnIcon style={{ marginRight: "5px" }} /> Bs/USD{" "}
-              {cambioDelDiaUSD ? cambioDelDiaUSD.tasaDeCambios.toLocaleString() : "Cargando..."}
-            </Button>
-          </Tooltip>
+    
           <div>
             <IconButton style={{ color: "white" }} onClick={() => setNotification(true)}>
               <StyledBadge badgeContent={1} color="secondary">

@@ -14,6 +14,17 @@ export const URL_PAGES = {
     label: "Inicio",
     path: "/home"
   },
+
+  ip: {
+    label: "Inicio",
+    path: "/home"
+  },
+
+  user: {
+    label: "User",
+    path: "/user"
+  },
+ 
  
  
 };

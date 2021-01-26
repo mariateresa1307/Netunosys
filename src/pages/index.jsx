@@ -3,6 +3,7 @@ import { Route, Switch, Router } from "react-router-dom";
 import history from "../helpers/history";
 import Layout from "../components/layout";
 import Home from "./home";
+import User from "./user";
 import login from "./login";
 import notFound from "./notFound";
 import { URL_PAGES } from "../helpers/constants/routes";
@@ -41,7 +42,7 @@ function PagesIndex() {
         <Route exact path={URL_PAGES.notFound.path} component={notFound} />
         <Layout>
           <Animate exact path={URL_PAGES.home.path} component={<Home />} />
-
+          <Animate exact path={URL_PAGES.user.path} component={<User />} />
           </Layout>
       </Switch>
     </Router>

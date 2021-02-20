@@ -135,7 +135,7 @@ export default function Layout(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            Netuno
+            NETUNO
           </Typography>
     
           <div>

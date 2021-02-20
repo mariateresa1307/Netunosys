@@ -4,8 +4,8 @@ import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItem from '@material-ui/core/ListItem';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
+import building from "../assets/images/1.jpg";
+import MuiDialogContent from "@material-ui/core/DialogContent";
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -34,7 +34,7 @@ export default function FullScreenDialog(props) {
     <div>
      
       <Dialog fullScreen open={props.open} onClose={props.handleClose} TransitionComponent={Transition}>
-        <AppBar className={classes.appBar}>
+        <AppBar className={classes.appBar} style={{backgroundColor:"#304074"}}>
           <Toolbar>
             <IconButton edge="start" color="inherit" onClick={props.handleClose} aria-label="close">
               <CloseIcon />
@@ -47,7 +47,15 @@ export default function FullScreenDialog(props) {
             </Button>
           </Toolbar>
         </AppBar>
-        {props.children}
+        <MuiDialogContent
+          style={{
+            backgroundImage: `url(${building})`,
+            backgroundSize: "cover"
+          }}
+        >
+          {props.children}
+        </MuiDialogContent>
+        
       </Dialog>
     </div>
   );

@@ -17,6 +17,7 @@ const AddFab = (props) => {
             zIndex: 60,
             padding: "0 56px",
             transtionDuration: "2s",
+            boxShadow:"rgb(26 35 126 / 78%) 0px 3px 12px 0px, rgb(26 35 126 / 93%) 0px 6px 2px 0px, rgb(26 35 126 / 65%) 0px 1px 20px 0px",
             ...springProps
           }}
         >

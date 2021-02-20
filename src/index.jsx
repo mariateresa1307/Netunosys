@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./pages";
+import App from "./app";
 import * as serviceWorker from "./serviceWorker";
 import "fontsource-roboto";
 import "./assets/css/main.css";

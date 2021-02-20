@@ -1,12 +1,17 @@
 import React from "react";
 import { Route, Switch, Router } from "react-router-dom";
-import history from "../helpers/history";
-import Layout from "../components/layout";
-import Home from "./home";
-import User from "./user";
-import login from "./login";
-import notFound from "./notFound";
-import { URL_PAGES } from "../helpers/constants/routes";
+import history from "./helpers/history";
+import Layout from "./components/layout";
+import login from "./pages/login";
+import Home from "./pages/home";
+import ClienteIP from "./pages/customers"
+import Ip from "./pages/asignamentIp/index"
+import AsignacionRecursos from "./pages/assignmentResources/vlans"
+import Recurso from "./pages/assignmentResources/dslam/index"
+import User from "./pages/user";
+import AdminUser from "./pages/user/adminUser";
+import notFound from "./pages/notFound";
+import { URL_PAGES } from "./helpers/constants/routes";
 import { AnimatedRoute } from "react-router-transition";
 
 const Animate = ({ component, ...otherProps }) => {
@@ -42,7 +47,12 @@ function PagesIndex() {
         <Route exact path={URL_PAGES.notFound.path} component={notFound} />
         <Layout>
           <Animate exact path={URL_PAGES.home.path} component={<Home />} />
+          <Animate exact path={URL_PAGES.cliente.path} component={<ClienteIP/>} />
+          <Animate exact path={URL_PAGES.asignacionRecursos.path} component={<AsignacionRecursos/>} />
+          <Animate exact path={URL_PAGES.ip.path} component={<Ip/>} />
+          <Animate exact path={URL_PAGES.recurso.path} component={<Recurso/>} />
           <Animate exact path={URL_PAGES.user.path} component={<User />} />
+          <Animate exact path={URL_PAGES.adminUser.path} component={<AdminUser />} />
           </Layout>
       </Switch>
     </Router>

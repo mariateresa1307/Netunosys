@@ -10,28 +10,22 @@ import header from "../assets/images/2logonet.png";
 import { useSelector, useDispatch } from "react-redux";
 import { menuClose } from "../actions/menu";
 import HomeIcon from "@material-ui/icons/Home";
-import FaceIcon from "@material-ui/icons/Face";
+import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
 import Collapse from "@material-ui/core/Collapse";
 import ExpandLess from "@material-ui/icons/ExpandLess";
 import ExpandMore from "@material-ui/icons/ExpandMore";
-import HomeWorkIcon from "@material-ui/icons/HomeWork";
-import ListAltIcon from "@material-ui/icons/ListAlt";
 import RecentActorsIcon from "@material-ui/icons/RecentActors";
-import InsertChartIcon from "@material-ui/icons/InsertChart";
-import ReceiptIcon from "@material-ui/icons/Receipt";
-import PaymentIcon from "@material-ui/icons/Payment";
-import ApartmentIcon from "@material-ui/icons/Apartment";
-import HouseIcon from "@material-ui/icons/House";
+import ShareIcon from '@material-ui/icons/Share';
 import { URL_PAGES } from "../helpers/constants/routes";
 import SettingsIcon from "@material-ui/icons/Settings";
 import { useTheme } from "@material-ui/core/styles";
-import AutorenewIcon from "@material-ui/icons/Autorenew";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
-
-import DescriptionIcon from "@material-ui/icons/Description";
-import BrandingWatermarkIcon from "@material-ui/icons/BrandingWatermark";
-import PersonIcon from "@material-ui/icons/Person";
+import PinDropIcon from '@material-ui/icons/PinDrop';
+import RoomIcon from '@material-ui/icons/Room';
+import SettingsEthernetIcon from '@material-ui/icons/SettingsEthernet';
+import GroupIcon from '@material-ui/icons/Group';
+import RadioIcon from '@material-ui/icons/Radio';
 const Menu = (props) => {
   const theme = useTheme();
   const dispatch = useDispatch();
@@ -93,7 +87,7 @@ const Menu = (props) => {
 
           <ListItem button onClick={() => handleCollapse("collapCliente")}>
             <ListItemIcon style={{ marginRight: "-15px" }}>
-              <HomeWorkIcon />
+              <GroupIcon />
             </ListItemIcon>
             <ListItemText primary={"Clientes"} />
             {state.inmueble ? <ExpandLess /> : <ExpandMore />}
@@ -101,9 +95,9 @@ const Menu = (props) => {
           <div style={{ backgroundColor: "#b5b4b21f" }}>
             <Collapse in={state.collapCliente} timeout="auto" unmountOnExit style={{ marginLeft: "25px" }}>
               <List component="div" disablePadding>
-                <ListItem button onClick={() => goTo(URL_PAGES.inmueble.path)}>
+                <ListItem button onClick={() => goTo(URL_PAGES.cliente.path)}>
                   <ListItemIcon style={{ marginRight: "-15px" }}>
-                    <HomeIcon />
+                    <AssignmentIndIcon />
                   </ListItemIcon>
                   <ListItemText primary={"Clientes IP "} />
                 </ListItem>
@@ -113,7 +107,7 @@ const Menu = (props) => {
 
           <ListItem button onClick={() => handleCollapse("collapVlan")}>
             <ListItemIcon style={{ marginRight: "-15px" }}>
-              <RecentActorsIcon />
+              <ShareIcon />
             </ListItemIcon>
             <ListItemText primary={"Asignacion de Vlan"} />
             {state.collapVlan ? <ExpandLess /> : <ExpandMore />}
@@ -122,16 +116,16 @@ const Menu = (props) => {
           <div style={{ backgroundColor: "#b5b4b21f" }}>
             <Collapse in={state.collapVlan} timeout="auto" unmountOnExit style={{ marginLeft: "25px" }}>
               <List component="div" disablePadding>
-                <ListItem button onClick={() => goTo(URL_PAGES.gestionPropietario.path)}>
+                <ListItem button onClick={() => goTo(URL_PAGES.asignacionRecursos.path)}>
                   <ListItemIcon style={{ marginRight: "-15px" }}>
-                    <PersonIcon />
+                    <SettingsEthernetIcon />
                   </ListItemIcon>
                   <ListItemText primary=" Gestion de Vlan  " />
                 </ListItem>
 
-                <ListItem button onClick={() => goTo(URL_PAGES.gestionBeneficiario.path)}>
+                <ListItem button onClick={() => goTo(URL_PAGES.recurso.path)}>
                   <ListItemIcon style={{ marginRight: "-15px" }}>
-                    <FaceIcon />
+                    <RadioIcon />
                   </ListItemIcon>
                   <ListItemText primary=" Gestion Dslam  " />
                 </ListItem>
@@ -143,7 +137,7 @@ const Menu = (props) => {
 
           <ListItem button onClick={() => handleCollapse("collapIP")}>
             <ListItemIcon style={{ marginRight: "-15px" }}>
-              <HouseIcon />
+              <RoomIcon/>
             </ListItemIcon>
             <ListItemText primary={"IP"} />
             {state.collapIP ? <ExpandLess /> : <ExpandMore />}
@@ -154,7 +148,7 @@ const Menu = (props) => {
               <List component="div" disablePadding>
                 <ListItem button onClick={() => goTo(URL_PAGES.ip.path)}>
                   <ListItemIcon style={{ marginRight: "-15px" }}>
-                    <ApartmentIcon />
+                    <PinDropIcon />
                   </ListItemIcon>
                   <ListItemText primary={"Gestión IP"} />
                 </ListItem>
@@ -179,18 +173,25 @@ const Menu = (props) => {
             <Collapse in={state.collapConfiguracion} timeout="auto" unmountOnExit style={{ marginLeft: "25px" }}>
               <List component="div" disablePadding>
 
-                <ListItem button onClick={() => goTo(URL_PAGES.configUsuarios.path)}>
+                <ListItem button onClick={() => goTo(URL_PAGES.user.path)}>
                   <ListItemIcon style={{ marginRight: "-15px" }}>
                     <AccountCircleIcon />
                   </ListItemIcon>
                   <ListItemText primary={"Gestion de Usuarios"} />
+                </ListItem>
+
+                <ListItem button onClick={() => goTo(URL_PAGES.adminUser.path)}>
+                  <ListItemIcon style={{ marginRight: "-15px" }}>
+                    <RecentActorsIcon />
+                  </ListItemIcon>
+                  <ListItemText primary={"Administracion de Usuarios"} />
                 </ListItem>
               </List>
             </Collapse>
           </div>
           
           <Divider />
-          <ListItem button >
+          <ListItem button onClick={() => goTo(URL_PAGES.login.path)}>
             <ListItemIcon style={{ marginRight: "-15px" }}>
               <ExitToAppIcon />
             </ListItemIcon>

@@ -11,8 +11,8 @@ const ModalAlquiler = (props) => {
 
   return (
     <>
-      <CustomModal header={"Gestión de Alquiler"} {...props}>
-        fff
+      <CustomModal header={" Gestionar Usuarios"} {...props}>
+        Gestionar Usuarios
       </CustomModal>
     </>
   );

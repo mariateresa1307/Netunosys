@@ -16,116 +16,120 @@ import { Card } from "@material-ui/core";
 import header from "../../assets/images/2logonet.png";
 import Divider from "@material-ui/core/Divider";
 import Particles from "react-particles-js";
-
+import { URL_PAGES } from "../../helpers/constants/routes";
+import history from "../../helpers/history";
+import { useSelector, useDispatch } from "react-redux";
+import { menuClose } from "../../actions/menu";
+import Fondo from "../../assets/images/fondo.jpg"
 const params = {
-  particles: {
-    number: {
-      value: 200,
-      density: {
-        enable: true,
-        value_area: 881.8766334760375,
-      },
+  "particles": {
+    "number": {
+      "value": 80,
+      "density": {
+        "enable": true,
+        "value_area": 800
+      }
     },
-    color: {
-      value: "#ffffff",
+    "color": {
+      "value": "#ffffff"
     },
-    shape: {
-      type: "edge",
-      stroke: {
-        width: 0,
-        color: "#000000",
+    "shape": {
+      "type": "circle",
+      "stroke": {
+        "width": 0,
+        "color": "#000000"
       },
-      polygon: {
-        nb_sides: 5,
+      "polygon": {
+        "nb_sides": 5
       },
-      image: {
-        src: "img/github.svg",
-        width: 100,
-        height: 100,
-      },
+      "image": {
+        "src": "img/github.svg",
+        "width": 100,
+        "height": 100
+      }
     },
-    opacity: {
-      value: 0.5,
-      random: false,
-      anim: {
-        enable: false,
-        speed: 1,
-        opacity_min: 0.1,
-        sync: false,
-      },
+    "opacity": {
+      "value": 0.5,
+      "random": false,
+      "anim": {
+        "enable": false,
+        "speed": 1,
+        "opacity_min": 0.1,
+        "sync": false
+      }
     },
-    size: {
-      value: 2,
-      random: true,
-      anim: {
-        enable: false,
-        speed: 40,
-        size_min: 0.1,
-        sync: false,
-      },
+    "size": {
+      "value": 3,
+      "random": true,
+      "anim": {
+        "enable": false,
+        "speed": 40,
+        "size_min": 0.1,
+        "sync": false
+      }
     },
-    line_linked: {
-      enable: true,
-      distance: 128.27296486924183,
-      color: "#ffffff",
-      opacity: 0.352750653390415,
-      width: 0.9620472365193136,
+    "line_linked": {
+      "enable": true,
+      "distance": 150,
+      "color": "#ffffff",
+      "opacity": 0.4,
+      "width": 1
     },
-    move: {
-      enable: true,
-      speed: 6.413648243462092,
-      direction: "none",
-      random: true,
-      straight: false,
-      out_mode: "out",
-      bounce: false,
-      attract: {
-        enable: false,
-        rotateX: 641.3648243462092,
-        rotateY: 1200,
-      },
-    },
+    "move": {
+      "enable": true,
+      "speed": 6,
+      "direction": "none",
+      "random": false,
+      "straight": false,
+      "out_mode": "out",
+      "bounce": false,
+      "attract": {
+        "enable": false,
+        "rotateX": 600,
+        "rotateY": 1200
+      }
+    }
   },
-  interactivity: {
-    detect_on: "canvas",
-    events: {
-      onhover: {
-        enable: true,
-        mode: "repulse",
+  "interactivity": {
+    "detect_on": "canvas",
+    "events": {
+      "onhover": {
+        "enable": true,
+        "mode": "repulse"
       },
-      onclick: {
-        enable: true,
-        mode: "push",
+      "onclick": {
+        "enable": true,
+        "mode": "push"
       },
-      resize: true,
+      "resize": true
     },
-    modes: {
-      grab: {
-        distance: 400,
-        line_linked: {
-          opacity: 1,
-        },
+    "modes": {
+      "grab": {
+        "distance": 400,
+        "line_linked": {
+          "opacity": 1
+        }
       },
-      bubble: {
-        distance: 400,
-        size: 40,
-        duration: 2,
-        opacity: 8,
-        speed: 3,
+      "bubble": {
+        "distance": 400,
+        "size": 40,
+        "duration": 2,
+        "opacity": 8,
+        "speed": 3
       },
-      repulse: {
-        distance: 200,
-        duration: 0.4,
+      "repulse": {
+        "distance": 200,
+        "duration": 0.4
       },
-      push: {
-        particles_nb: 4,
+      "push": {
+        "particles_nb": 4
       },
-      remove: {
-        particles_nb: 2,
-      },
-    },
+      "remove": {
+        "particles_nb": 2
+      }
+    }
   },
-};
+}
 
 function Copyright() {
   return (
@@ -142,8 +146,8 @@ function Copyright() {
 
 const useStyles = makeStyles((theme) => ({
   body: {
-    backgroundColor: "#030320",
-    height: "100%",
+    
+    height: "50%",
   },
   paper: {
     display: "flex",
@@ -155,7 +159,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
-    width: "100%", // Fix IE 11 issue.
+    width: "50%", // Fix IE 11 issue.
     marginTop: theme.spacing(1),
   },
   submit: {
@@ -165,6 +169,14 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignIn() {
   const classes = useStyles();
+  const dispatch = useDispatch();
+  const goTo = (path) => {
+    history.push(path);
+
+    setTimeout(function () {
+      dispatch(menuClose());
+    }, 500);
+  };
 
   React.useEffect(() => {
     const r = document.getElementById("root");
@@ -172,7 +184,7 @@ export default function SignIn() {
 
     const b = document.getElementsByTagName("body");
     b[0].style.height = "100%";
-    b[0].style.background = "#030320";
+   
 
     const h = document.getElementsByTagName("html");
     h[0].style.height = "100%";
@@ -184,24 +196,27 @@ export default function SignIn() {
         params={params}
         style={{
           position: "fixed",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundImage: `url("${Fondo}")` 
         }}
       />
       <Grid container justify="center">
-        <Grid item xs={11} sm={10} md={5} style={{ zIndex: "20" }}>
+        <Grid item xs={5} sm={5} md={4} style={{ zIndex: "20" }}>
           <Card style={{ marginTop: "25%" }}>
             <CssBaseline />
-            <div className={classes.paper} style={{ padding: "70px" }}>
-              <img
+            <div className={classes.paper} style={{ marginTop:"50px",marginBottom:"80px"}}>
+              <img // image
                 src={header}
                 alt="Administradora Yuruary"
                 style={{
-                  maxWidth: "403px",
-                  width: "100%",
+                  maxWidth: "300px",
+                  width: "110%",
                   textAlign: "center",
                   display: "block",
                   margin: "auto",
                   marginTop: "-22px",
-                  marginBottom: "20px",
+                  marginBottom: "0px",
                 }}
               />
               <Divider />
@@ -241,6 +256,7 @@ export default function SignIn() {
                   variant="contained"
                   color="primary"
                   className={classes.submit}
+                  onClick={() => goTo(URL_PAGES.home.path)}
                 >
                   Sign In
                 </Button>

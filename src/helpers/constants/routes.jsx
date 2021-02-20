@@ -14,15 +14,31 @@ export const URL_PAGES = {
     label: "Inicio",
     path: "/home"
   },
-
+  cliente: {
+    label: "Cliente",
+    path: "/cliente"
+  },
+  asignacionRecursos: {
+    label: "Asignacion de recursos",
+    path: "/asignacionRecursos"
+  },
+  recurso: {
+    label: "Asignacion DSLAM",
+    path: "/asignacionRecursos/dslam"
+  },
   ip: {
     label: "Inicio",
-    path: "/home"
+    path: "/asignamentIp"
   },
 
   user: {
     label: "User",
     path: "/user"
+  },
+ 
+  adminUser: {
+    label: "AdminUser",
+    path: "/adminUser"
   },
  
  

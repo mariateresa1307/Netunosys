@@ -150,7 +150,7 @@ const ModalClient = (props) => {
               boxShadow: " -2px 3px 15px 0px #e8e8e8",
             }}
           >
-            <Card elevation={0} variant={"elevation"}>
+            <Card elevation={0} variant={"elevation"} style={{ textAlign: "center" }}>
               <CardContent style={{}}>
                 {tarjetas(form.tarjeta)}
                 <Fab variant="extended" size="large" color="primary" onClick={agregarTarjeta} aria-label="add" justify="center" style={{ padding: "0 56px" }}>

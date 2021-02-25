@@ -1,65 +1,66 @@
-import React, { useState } from "react";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
-import history from "../helpers/history";
-import Drawer from "@material-ui/core/Drawer";
-import Divider from "@material-ui/core/Divider";
-import header from "../assets/images/2logonet.png";
-import { useSelector, useDispatch } from "react-redux";
-import { menuClose } from "../actions/menu";
-import HomeIcon from "@material-ui/icons/Home";
-import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
-import Collapse from "@material-ui/core/Collapse";
-import ExpandLess from "@material-ui/icons/ExpandLess";
-import ExpandMore from "@material-ui/icons/ExpandMore";
-import RecentActorsIcon from "@material-ui/icons/RecentActors";
-import ShareIcon from '@material-ui/icons/Share';
-import { URL_PAGES } from "../helpers/constants/routes";
-import SettingsIcon from "@material-ui/icons/Settings";
-import { useTheme } from "@material-ui/core/styles";
-import AccountCircleIcon from "@material-ui/icons/AccountCircle";
-import ExitToAppIcon from "@material-ui/icons/ExitToApp";
-import PinDropIcon from '@material-ui/icons/PinDrop';
-import RoomIcon from '@material-ui/icons/Room';
-import SettingsEthernetIcon from '@material-ui/icons/SettingsEthernet';
-import GroupIcon from '@material-ui/icons/Group';
-import RadioIcon from '@material-ui/icons/Radio';
+import React, { useState } from "react"
+import List from "@material-ui/core/List"
+import ListItem from "@material-ui/core/ListItem"
+import ListItemIcon from "@material-ui/core/ListItemIcon"
+import ListItemText from "@material-ui/core/ListItemText"
+import history from "../helpers/history"
+import Drawer from "@material-ui/core/Drawer"
+import Divider from "@material-ui/core/Divider"
+import header from "../assets/images/2logonet.png"
+import { useSelector, useDispatch } from "react-redux"
+import { menuClose } from "../actions/menu"
+import HomeIcon from "@material-ui/icons/Home"
+import AssignmentIndIcon from "@material-ui/icons/AssignmentInd"
+import Collapse from "@material-ui/core/Collapse"
+import ExpandLess from "@material-ui/icons/ExpandLess"
+import ExpandMore from "@material-ui/icons/ExpandMore"
+import RecentActorsIcon from "@material-ui/icons/RecentActors"
+import ShareIcon from "@material-ui/icons/Share"
+import { URL_PAGES } from "../helpers/constants/routes"
+import SettingsIcon from "@material-ui/icons/Settings"
+import { useTheme } from "@material-ui/core/styles"
+import AccountCircleIcon from "@material-ui/icons/AccountCircle"
+import ExitToAppIcon from "@material-ui/icons/ExitToApp"
+import PinDropIcon from "@material-ui/icons/PinDrop"
+import RoomIcon from "@material-ui/icons/Room"
+import SettingsEthernetIcon from "@material-ui/icons/SettingsEthernet"
+import GroupIcon from "@material-ui/icons/Group"
+import RadioIcon from "@material-ui/icons/Radio"
+import AssessmentIcon from "@material-ui/icons/Assessment"
 const Menu = (props) => {
-  const theme = useTheme();
-  const dispatch = useDispatch();
-  const menu = useSelector((store) => store.menu);
+  const theme = useTheme()
+  const dispatch = useDispatch()
+  const menu = useSelector((store) => store.menu)
 
   const [state, setState] = useState({
     collapCliente: false,
     collapVlan: false,
-    collapConfiguracion: false
-  });
+    collapConfiguracion: false,
+  })
 
   const goTo = (path) => {
-    history.push(path);
+    history.push(path)
 
     setTimeout(function () {
-      dispatch(menuClose());
-    }, 500);
-  };
+      dispatch(menuClose())
+    }, 500)
+  }
 
   const handleCollapse = (itemName) => {
     setState((prevState) => {
-      let collapesItems = {};
+      let collapesItems = {}
       for (const name in prevState) {
         collapesItems = {
           ...collapesItems,
-          [name]: false
-        };
+          [name]: false,
+        }
       }
       return {
         ...collapesItems,
-        [itemName]: !prevState[itemName]
-      };
-    });
-  };
+        [itemName]: !prevState[itemName],
+      }
+    })
+  }
 
   return (
     <Drawer anchor="left" open={menu.open} onClose={() => dispatch(menuClose())}>
@@ -73,7 +74,7 @@ const Menu = (props) => {
             display: "block",
             margin: "auto",
             marginTop: "17px",
-            marginBottom: "20px"
+            marginBottom: "20px",
           }}
         />
         <Divider style={{ background: theme.palette.secondary.main }} />
@@ -95,11 +96,25 @@ const Menu = (props) => {
           <div style={{ backgroundColor: "#b5b4b21f" }}>
             <Collapse in={state.collapCliente} timeout="auto" unmountOnExit style={{ marginLeft: "25px" }}>
               <List component="div" disablePadding>
-                <ListItem button onClick={() => goTo(URL_PAGES.cliente.path)}>
+                <ListItem button onClick={() => goTo(URL_PAGES.clienteIp.path)}>
                   <ListItemIcon style={{ marginRight: "-15px" }}>
                     <AssignmentIndIcon />
                   </ListItemIcon>
                   <ListItemText primary={"Clientes IP "} />
+                </ListItem>
+
+                <ListItem button onClick={() => goTo(URL_PAGES.customers.path)}>
+                  <ListItemIcon style={{ marginRight: "-15px" }}>
+                    <RadioIcon />
+                  </ListItemIcon>
+                  <ListItemText primary=" Gestionar  Clientes  " />
+                </ListItem>
+
+                <ListItem button onClick={() => goTo(URL_PAGES.reporteCliente.path)}>
+                  <ListItemIcon style={{ marginRight: "-15px" }}>
+                    <AssessmentIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Reportes" />
                 </ListItem>
               </List>
             </Collapse>
@@ -109,7 +124,7 @@ const Menu = (props) => {
             <ListItemIcon style={{ marginRight: "-15px" }}>
               <ShareIcon />
             </ListItemIcon>
-            <ListItemText primary={"Asignacion de Vlan"} />
+            <ListItemText primary={"Asignacion de Recursos"} />
             {state.collapVlan ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
 
@@ -129,15 +144,13 @@ const Menu = (props) => {
                   </ListItemIcon>
                   <ListItemText primary=" Gestion Dslam  " />
                 </ListItem>
-
-            
               </List>
             </Collapse>
           </div>
 
           <ListItem button onClick={() => handleCollapse("collapIP")}>
             <ListItemIcon style={{ marginRight: "-15px" }}>
-              <RoomIcon/>
+              <RoomIcon />
             </ListItemIcon>
             <ListItemText primary={"IP"} />
             {state.collapIP ? <ExpandLess /> : <ExpandMore />}
@@ -152,11 +165,6 @@ const Menu = (props) => {
                   </ListItemIcon>
                   <ListItemText primary={"Gestión IP"} />
                 </ListItem>
-                
-
-         
-
-                
               </List>
             </Collapse>
           </div>
@@ -172,7 +180,6 @@ const Menu = (props) => {
           <div style={{ backgroundColor: "#b5b4b21f" }}>
             <Collapse in={state.collapConfiguracion} timeout="auto" unmountOnExit style={{ marginLeft: "25px" }}>
               <List component="div" disablePadding>
-
                 <ListItem button onClick={() => goTo(URL_PAGES.user.path)}>
                   <ListItemIcon style={{ marginRight: "-15px" }}>
                     <AccountCircleIcon />
@@ -189,7 +196,7 @@ const Menu = (props) => {
               </List>
             </Collapse>
           </div>
-          
+
           <Divider />
           <ListItem button onClick={() => goTo(URL_PAGES.login.path)}>
             <ListItemIcon style={{ marginRight: "-15px" }}>
@@ -200,7 +207,7 @@ const Menu = (props) => {
         </List>
       </div>
     </Drawer>
-  );
-};
+  )
+}
 
-export default Menu;
+export default Menu

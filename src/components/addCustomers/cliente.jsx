@@ -7,15 +7,31 @@ import Typography from "@material-ui/core/Typography"
 import TextField from "@material-ui/core/TextField"
 import FormControl from "@material-ui/core/FormControl"
 import Select from "@material-ui/core/Select"
-const EmpleadoStep = () => {
+import SearchIcon from "@material-ui/icons/Search"
+import IconButton from "@material-ui/core/IconButton"
+
+const ClienteStep = () => {
   return (
     <Grid container spacing={4}>
       <Grid item xs={12}>
         <Divider />
       </Grid>
 
-      <Grid item xs={12} sm={4} md={4}>
-        <TextField label="Abonado" fullWidth variant="filled" />
+      <Grid item xs={12} sm={6} md={4} lg={4}>
+        <div>
+          <TextField label="Abonado" fullWidth variant="filled" />
+          <IconButton
+            type="submit"
+            aria-label="search"
+            style={{
+              marginTop: "7px",
+              marginLeft: "-54px",
+              position: "relative",
+            }}
+          >
+            <SearchIcon />
+          </IconButton>
+        </div>
       </Grid>
 
       <Grid item xs={12} sm={4} md={4}>
@@ -57,4 +73,4 @@ const EmpleadoStep = () => {
   )
 }
 
-export default EmpleadoStep
+export default ClienteStep

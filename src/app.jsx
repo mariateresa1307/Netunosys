@@ -16,7 +16,8 @@ import { URL_PAGES } from "./helpers/constants/routes"
 import { AnimatedRoute } from "react-router-transition"
 import ReporteCliente from "./pages/customers/report"
 import Notification from "./pages/configure/notification"
-
+import Incidencia from "./pages/incidence/index"
+import Ftto from "./pages/ftto/index"
 const Animate = ({ component, ...otherProps }) => {
   const comp = () => {
     return <div style={{ zIndex: 3, padding: "20px", paddingBottom: "130px" }}>{component}</div>
@@ -59,6 +60,8 @@ function PagesIndex() {
           <Animate exact path={URL_PAGES.recurso.path} component={<Recurso />} />
           <Animate exact path={URL_PAGES.user.path} component={<User />} />
           <Animate exact path={URL_PAGES.adminUser.path} component={<AdminUser />} />
+          <Animate exact path={URL_PAGES.incidenciaCliente.path} component={<Incidencia />} />
+          <Animate exact path={URL_PAGES.ftto.path} component={<Ftto />} />
         </Layout>
       </Switch>
     </Router>

@@ -2,22 +2,19 @@ import React from "react"
 import MaterialTable from "../../components/materialTable"
 import SectionTitle from "../../elements/sectionTitle"
 import Grid from "@material-ui/core/Grid"
-import WorkIcon from "@material-ui/icons/Work"
 import IconButton from "@material-ui/core/IconButton"
 import ChromeReaderModeIcon from "@material-ui/icons/ChromeReaderMode"
 import Tooltip from "@material-ui/core/Tooltip"
 import AddFab from "../../elements/addFab"
 import CustomCard from "../../components/card"
 import BarChartIcon from "@material-ui/icons/BarChart"
-import DetallesRegistro from "./dialogDetalle"
-import ModifyCustomers from "../../components/modifyCustomers"
-import StateCustomers from "./stateCustomers"
-import StateService from "./stateService"
-
+import WorkIcon from "@material-ui/icons/Work"
 import { makeStyles } from "@material-ui/core/styles"
 import Avatar from "@material-ui/core/Avatar"
 import User from "../../assets/images/user.jpeg"
 import ListAltIcon from "@material-ui/icons/ListAlt"
+import CustomModal from "./addFtto"
+import ModifyModal from "./addFtto"
 const useStyles = makeStyles((theme) => ({
   appBar: {
     position: "relative",
@@ -28,19 +25,22 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const ClienteIndex = (props) => {
+const IndexHome = (props) => {
   const classes = useStyles()
 
   const [open, setOpen] = React.useState(false)
 
   const [open1, setOpen1] = React.useState(false)
-
+  const [open2, setOpen2] = React.useState(false)
   const handleClickOpen = () => {
     setOpen(true)
   }
 
   const handleClickOpen1 = () => {
     setOpen1(true)
+  }
+  const handleClickOpen2 = () => {
+    setOpen2(true)
   }
 
   const handleClose = () => {
@@ -51,24 +51,26 @@ const ClienteIndex = (props) => {
     setOpen1(false)
   }
 
+  const handleClose2 = () => {
+    setOpen2(false)
+  }
   React.useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" })
   }, [])
-
   return (
     <>
       <Grid container spacing={4} justify="center">
         <Grid item xs={12}>
-          <SectionTitle label={"Clientes ip"} />
+          <SectionTitle label={" Gestionar Servicios FTTO "} />
         </Grid>
         <Grid item xs={12} lg={12}>
           <Grid container spacing={2} justify="center">
             <Grid item xs={12} sm={6} md={6} lg={6}>
-              <StateCustomers />
+              <CustomCard title=" FiberPon Premium" content="59" background={"linear-gradient(to right, #fe8c81 0%, #fbd323 100%)"} icons={<BarChartIcon />} />
             </Grid>
 
             <Grid item xs={12} sm={6} md={6} lg={6}>
-              <StateService />
+              <CustomCard title="FiberPon Business Plus " content="59" background={"linear-gradient(to right, #a77ffc, #ca77ea, #e370d6, #f46dc1, #ff6eac)"} icons={<BarChartIcon />} />
             </Grid>
           </Grid>
         </Grid>
@@ -81,11 +83,15 @@ const ClienteIndex = (props) => {
                 { value: 1, label: "Abonado" },
                 { value: 2, label: "Contrato" },
                 { value: 3, label: "Vlan" },
+                { value: 4, label: "OLT" },
+                { value: 5, label: "SerialPON" },
+                { value: 6, label: "MAC" },
+                { value: 7, label: "Ip Estatica Asignada" },
               ],
             }}
             /* search value */
             noSearch
-            title={"Registros de Clientes"}
+            title={"Registros de Servicios"}
             columns={[
               {
                 field: "user",
@@ -95,53 +101,55 @@ const ClienteIndex = (props) => {
               },
               {
                 title: "Abonado",
-                field: "abonado",
+                field: "Abonado",
               },
               {
-                title: " Contrato",
-                field: "contrato",
+                title: "Contrato ",
+                field: "Contrato",
               },
-
               {
                 title: "Vlan",
                 field: "vlan",
               },
               {
-                title: "Id Cliente",
-                field: "id",
+                title: "ONT ID",
+                field: "OntID",
               },
               {
-                title: "Ip Serial",
-                field: "ip",
+                title: "Cliente",
+                field: "Cliente",
+              },
+
+              {
+                title: "OLT",
+                field: "olt",
+              },
+
+              {
+                title: "Nodo",
+                field: "Nodo",
               },
               {
-                title: "Equipo Core",
-                field: "equipoCore",
+                title: "Serial PON",
+                field: "SerialPON",
               },
               {
-                title: "Dslam",
-                field: "dslam",
+                title: "MAC",
+                field: "Mac",
               },
               {
-                title: "Tarjeta",
-                field: "tarjeta",
+                title: "FiberPon",
+                field: "FiberPon",
               },
               {
-                title: "Puerto",
-                field: "puerto",
+                title: "Paquete",
+                field: "Paquete",
               },
               {
-                title: "Bw",
-                field: "bw",
+                title: "Ip Estatica Asignada",
+                field: "IpEstaticaAsignada",
               },
-              {
-                title: "Servicio",
-                field: "servicio",
-              },
-              {
-                title: "Bloque ip",
-                field: "bloqueIp",
-              },
+
               {
                 title: "Acciones",
                 render: (rowData) => (
@@ -152,7 +160,7 @@ const ClienteIndex = (props) => {
                           marginLeft: "auto",
                           marginRight: "auto",
                         }}
-                        onClick={handleClickOpen}
+                        onClick={handleClickOpen1}
                       >
                         <ChromeReaderModeIcon />
                       </IconButton>
@@ -175,32 +183,32 @@ const ClienteIndex = (props) => {
             data={{
               items: [
                 {
-                  abonado: "829871 ",
-                  contrato: "10022759",
-                  vlan: "2824",
-                  id: "Corp Tecnologia Global 21 ",
-                  ip: "190.6.63.182",
-                  equipoCore: "7604 PQC",
-                  dslam: "MXK319 PQC",
-                  tarjeta: "3",
-                  puerto: "4",
-                  bw: "1MB/10MB",
-                  servicio: "ADSL2+",
-                  bloqueIp: " 190.6.63.180/30",
+                  Abonado: "1037782 ",
+                  Contrato: "10089609",
+                  vlan: "813",
+                  OntID: "127",
+                  Cliente: "COMERCIALIZADORA RAHCO",
+                  olt: "PQC",
+                  Nodo: "CCSPQC00312A",
+                  SerialPON: "HWTCA53457A0",
+                  Mac: "8C426DE1A621",
+                  FiberPon: "Premium",
+                  Paquete: "100",
+                  IpEstaticaAsignada: "170.246.77.18",
                 },
                 {
-                  abonado: "829871 ",
-                  contrato: "10022759",
-                  vlan: "2824",
-                  id: "Corp Tecnologia Global 21 ",
-                  ip: "190.6.63.182",
-                  equipoCore: "7604 PQC",
-                  dslam: "MXK319 PQC",
-                  tarjeta: "3",
-                  puerto: "4",
-                  bw: "1MB/10MB",
-                  servicio: "ADSL2+",
-                  bloqueIp: " 190.6.63.180/30",
+                  Abonado: "1044779",
+                  Contrato: "10094843",
+                  vlan: "829",
+                  OntID: "126",
+                  Cliente: "INVERSIONES DRC",
+                  olt: "PQC",
+                  Nodo: "CCSPQC00309A",
+                  SerialPON: "HWTC753D8AA3",
+                  Mac: "A0DF15280AB2",
+                  FiberPon: "Premium",
+                  Paquete: "100",
+                  IpEstaticaAsignada: "170.246.77.38",
                 },
               ],
               meta: {
@@ -214,13 +222,13 @@ const ClienteIndex = (props) => {
       </Grid>
 
       <AddFab variant="outlined" type="button" color="primary" onClick={handleClickOpen}>
-        <WorkIcon style={{ marginRight: "15px" }} /> Agregar Servicio
+        <WorkIcon style={{ marginRight: "15px" }} /> Agregar Servicio FTTO
       </AddFab>
 
-      <ModifyCustomers open={open} handleClose={handleClose} title={"Gestionar Servicios"} />
-      <DetallesRegistro open1={open1} handleClose={handleClose1} title={"Detalles del Servicio"} />
+      <CustomModal open={open} handleClose={handleClose} title={"   Gestionar Servicio FTTO"} />
+      <ModifyModal open={open1} handleClose={handleClose1} title={"   Gestionar Servicio FTTO"} />
     </>
   )
 }
 
-export default ClienteIndex
+export default IndexHome

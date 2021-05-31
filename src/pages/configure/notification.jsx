@@ -38,7 +38,7 @@ const data = [
   {
     subject: "Michi Sharp",
     avatar: "/static/images/avatar/1.jpg",
-    title: "Supencion de servicio",
+    title: "Supension de servicio",
     subtitle: "Ali Connors",
     description: " A solicitud suspender el servicio ....",
   },

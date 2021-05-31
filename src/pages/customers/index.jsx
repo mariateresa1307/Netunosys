@@ -15,6 +15,9 @@ import { makeStyles } from "@material-ui/core/styles"
 import Avatar from "@material-ui/core/Avatar"
 import User from "../../assets/images/user.jpeg"
 import ListAltIcon from "@material-ui/icons/ListAlt"
+import ModifyCustomers from "../../components/modifyCustomers"
+import Carousel from "../../components/carousel"
+
 const useStyles = makeStyles((theme) => ({
   appBar: {
     position: "relative",
@@ -31,13 +34,16 @@ const ClienteIndex = (props) => {
   const [open, setOpen] = React.useState(false)
 
   const [open1, setOpen1] = React.useState(false)
-
+  const [open2, setOpen2] = React.useState(false)
   const handleClickOpen = () => {
     setOpen(true)
   }
 
   const handleClickOpen1 = () => {
     setOpen1(true)
+  }
+  const handleClickOpen2 = () => {
+    setOpen2(true)
   }
 
   const handleClose = () => {
@@ -48,6 +54,9 @@ const ClienteIndex = (props) => {
     setOpen1(false)
   }
 
+  const handleClose2 = () => {
+    setOpen2(false)
+  }
   React.useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" })
   }, [])
@@ -60,18 +69,19 @@ const ClienteIndex = (props) => {
         </Grid>
         <Grid item xs={12} lg={12}>
           <Grid container spacing={2} justify="center">
-            <Grid item xs={12} sm={6} md={4} lg={3}>
+            <Grid item xs={12} sm={6} md={3} lg={3}>
+              <Carousel />
+            </Grid>
+
+            <Grid item xs={12} sm={6} md={3} lg={3}>
               <CustomCard title=" Conectados" content="59" background={"linear-gradient(to right, #0ec8d5, #00d7d4, #00e6cc, #00f3bc, #37ffa5)"} icons={<BarChartIcon />} />
             </Grid>
 
-            <Grid item xs={12} sm={6} md={4} lg={3}>
-              <CustomCard title=" Desconectados" content="59" background={"linear-gradient(to left, #7559ce, #6f68d7, #6a76de, #6783e4, #678fe9)"} icons={<BarChartIcon />} />
-            </Grid>
-
-            <Grid item xs={12} sm={6} md={4} lg={3}>
+            <Grid item xs={12} sm={6} md={3} lg={3}>
               <CustomCard title="Por Instalar" content="59" background={"linear-gradient(to right, #fe8c81 0%, #fbd323 100%)"} icons={<BarChartIcon />} />
             </Grid>
-            <Grid item xs={12} sm={6} md={4} lg={3}>
+
+            <Grid item xs={12} sm={6} md={3} lg={3}>
               <CustomCard
                 title="Suspendido"
                 content="59"
@@ -80,6 +90,10 @@ const ClienteIndex = (props) => {
                 }
                 icons={<BarChartIcon />}
               />
+            </Grid>
+
+            <Grid item xs={12} sm={6} md={3} lg={3}>
+              <CustomCard title=" Desconectados" content="59" background={"linear-gradient(to left, #7559ce, #6f68d7, #6a76de, #6783e4, #678fe9"} icons={<BarChartIcon />} />
             </Grid>
           </Grid>
         </Grid>
@@ -114,15 +128,45 @@ const ClienteIndex = (props) => {
               },
 
               {
+                title: "Vlan",
+                field: "vlan",
+              },
+              {
                 title: "Id Cliente",
                 field: "id",
               },
-
+              {
+                title: "Ip Serial",
+                field: "ip",
+              },
+              {
+                title: "Equipo Core",
+                field: "equipoCore",
+              },
+              {
+                title: "Dslam",
+                field: "dslam",
+              },
+              {
+                title: "Tarjeta",
+                field: "tarjeta",
+              },
+              {
+                title: "Puerto",
+                field: "puerto",
+              },
+              {
+                title: "Bw",
+                field: "bw",
+              },
               {
                 title: "Servicio",
                 field: "servicio",
               },
-
+              {
+                title: "Bloque ip",
+                field: "bloqueIp",
+              },
               {
                 title: "Acciones",
                 render: (rowData) => (
@@ -133,12 +177,12 @@ const ClienteIndex = (props) => {
                           marginLeft: "auto",
                           marginRight: "auto",
                         }}
-                        onClick={handleClickOpen}
+                        onClick={handleClickOpen2}
                       >
                         <ChromeReaderModeIcon />
                       </IconButton>
                     </Tooltip>
-                    <Tooltip title="Detalles Registro">
+                    <Tooltip title="Detalles del servicio">
                       <IconButton
                         style={{
                           marginLeft: "auto",
@@ -158,26 +202,30 @@ const ClienteIndex = (props) => {
                 {
                   abonado: "829871 ",
                   contrato: "10022759",
+                  vlan: "2824",
                   id: "Corp Tecnologia Global 21 ",
+                  ip: "190.6.63.182",
+                  equipoCore: "7604 PQC",
+                  dslam: "MXK319 PQC",
+                  tarjeta: "3",
+                  puerto: "4",
+                  bw: "1MB/10MB",
                   servicio: "ADSL2+",
+                  bloqueIp: " 190.6.63.180/30",
                 },
                 {
                   abonado: "829871 ",
                   contrato: "10022759",
-                  id: " Tepeyac Producciones ",
-                  servicio: "Telefonia",
-                },
-                {
-                  abonado: "829871 ",
-                  contrato: "10022759",
-                  id: " Corp Tecnologia Global 21",
-                  servicio: "Zona DNS",
-                },
-                {
-                  abonado: "829871 ",
-                  contrato: "10022759",
-                  id: " Tepeyac Producciones ",
-                  servicio: "Bloque Adicional",
+                  vlan: "2824",
+                  id: "Corp Tecnologia Global 21 ",
+                  ip: "190.6.63.182",
+                  equipoCore: "7604 PQC",
+                  dslam: "MXK319 PQC",
+                  tarjeta: "3",
+                  puerto: "4",
+                  bw: "1MB/10MB",
+                  servicio: "ADSL2+",
+                  bloqueIp: " 190.6.63.180/30",
                 },
               ],
               meta: {
@@ -195,6 +243,7 @@ const ClienteIndex = (props) => {
       </AddFab>
 
       <CustomModal open={open} handleClose={handleClose} title={"   Gestionar Clientes"} />
+      <ModifyCustomers open={open2} handleClose={handleClose2} title={" Modificar Cliente"} />
       <DetallesRegistro open1={open1} handleClose={handleClose1} title={"Detalles del cliente"} />
     </>
   )

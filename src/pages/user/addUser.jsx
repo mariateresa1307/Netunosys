@@ -82,7 +82,7 @@ const ModalUsuario = (props) => {
                   {(springProps) => (
                     <AccountCircleIcon
                       style={{
-                        color: "#a9a9a9",
+                        color: "#5e5e5f",
                         fontSize: "200px",
                         ...springProps,
                       }}
@@ -110,6 +110,10 @@ const ModalUsuario = (props) => {
               </Grid>
               <Grid item xs={12} sm={6} md={4}>
                 <TextField label="Correo" fullWidth variant="filled" />
+              </Grid>
+
+              <Grid item xs={12} sm={6} md={4}>
+                <TextField label="Nombre de Usuario" fullWidth variant="filled" />
               </Grid>
 
               <Grid item xs={12} sm={6} md={4}>

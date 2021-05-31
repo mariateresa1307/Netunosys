@@ -1,6 +1,6 @@
-import React from "react";
-import { Card, CardContent, Button, Typography, Grid } from "@material-ui/core";
-import classsnames from "classnames";
+import React from "react"
+import { Card, CardContent, Button, Typography, Grid } from "@material-ui/core"
+import classsnames from "classnames"
 
 const DetailsCard = ({ icons, title, content, disableMoreInfo, background }) => (
   <div>
@@ -11,44 +11,39 @@ const DetailsCard = ({ icons, title, content, disableMoreInfo, background }) => 
             <Typography variant="h2" style={{ color: "white", textAlign: "center" }}>
               {icons} {content}
             </Typography>
-            <Typography
-              variant="h6"
-              style={{ textAlign: "center", color: "#ffffff", fontWeight: "initial", fontSize: "1.1rem" }}
-            >
+            <Typography variant="h6" style={{ textAlign: "center", color: "#ffffff", fontWeight: "initial", fontSize: "1.1rem" }}>
               {title}
             </Typography>
           </Grid>
 
-          {disableMoreInfo ? null : (
-            <Grid
-              item
-              xs={12}
-              sm={6}
-              md={6}
-              lg={6}
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            md={6}
+            lg={6}
+            style={{
+              textAlignLast: "end",
+              marginTop: "auto",
+            }}
+          >
+            <Button
               style={{
-                textAlignLast: "end",
-                marginTop: "auto"
+                right: "0px",
+                marginRight: "0px",
+                marginLeft: "auto",
+                display: "block",
+                color: "#ffffff",
+                padding: "6px 16px",
               }}
             >
-              <Button
-                style={{
-                  right: "0px",
-                  marginRight: "0px",
-                  marginLeft: "auto",
-                  display: "block",
-                  color: "#ffffff",
-                  padding: "6px 16px"
-                }}
-              >
-                Más 0información
-              </Button>
-            </Grid>
-          )}
+              Buscar
+            </Button>
+          </Grid>
         </Grid>
       </CardContent>
     </Card>
   </div>
-);
+)
 
-export default DetailsCard;
+export default DetailsCard

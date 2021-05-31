@@ -8,7 +8,7 @@ import MuiDialogActions from "@material-ui/core/DialogActions"
 import IconButton from "@material-ui/core/IconButton"
 import CloseIcon from "@material-ui/icons/Close"
 import Typography from "@material-ui/core/Typography"
-import StepperDslam from "../elements/stepperDslam"
+import building from "../assets/images/3.jpg"
 
 const styles = (theme) => ({
   root: {
@@ -53,16 +53,22 @@ const DialogActions = withStyles((theme) => ({
 export default function CustomizedDialogs(props) {
   return (
     <div>
-      <Dialog onClose={props.handleClose} fullWidth maxWidth="lg" open={props.open}>
-        <DialogTitle id="customized-dialog-title" onClose={props.handleClose} style={{ backgroundColor: "#304074", color: "white" }}>
-          {props.tittle}
+      <Dialog fullWidth onClose={props.handleClose} aria-labelledby="customized-dialog-title" open={props.open}>
+        <DialogTitle id="customized-dialog-title" style={{ backgroundColor: "#304074", color: "white" }} onClose={props.handleClose}>
+          {props.title}
         </DialogTitle>
-        <DialogContent dividers>
-          <StepperDslam />
+        <DialogContent
+          dividers
+          style={{
+            backgroundImage: `url(${building})`,
+            backgroundSize: "cover",
+          }}
+        >
+          {props.children}
         </DialogContent>
         <DialogActions>
           <Button autoFocus onClick={props.handleClose} color="primary">
-            Guardar Cambios
+            Save changes
           </Button>
         </DialogActions>
       </Dialog>

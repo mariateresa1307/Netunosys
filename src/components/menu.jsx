@@ -27,6 +27,8 @@ import SettingsEthernetIcon from "@material-ui/icons/SettingsEthernet"
 import GroupIcon from "@material-ui/icons/Group"
 import RadioIcon from "@material-ui/icons/Radio"
 import AssessmentIcon from "@material-ui/icons/Assessment"
+import AssignmentLateIcon from "@material-ui/icons/AssignmentLate"
+import LanguageIcon from "@material-ui/icons/Language"
 const Menu = (props) => {
   const theme = useTheme()
   const dispatch = useDispatch()
@@ -67,7 +69,7 @@ const Menu = (props) => {
       <div style={{ width: "300px" }}>
         <img
           src={header}
-          alt="Administradora Yuruary"
+          alt="Netuno"
           style={{
             width: "180px",
             textAlign: "center",
@@ -91,7 +93,7 @@ const Menu = (props) => {
               <GroupIcon />
             </ListItemIcon>
             <ListItemText primary={"Clientes"} />
-            {state.inmueble ? <ExpandLess /> : <ExpandMore />}
+            {state.cliente ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
           <div style={{ backgroundColor: "#b5b4b21f" }}>
             <Collapse in={state.collapCliente} timeout="auto" unmountOnExit style={{ marginLeft: "25px" }}>
@@ -108,6 +110,19 @@ const Menu = (props) => {
                     <RadioIcon />
                   </ListItemIcon>
                   <ListItemText primary=" Gestionar  Clientes  " />
+                </ListItem>
+
+                <ListItem button onClick={() => goTo(URL_PAGES.ftto.path)}>
+                  <ListItemIcon style={{ marginRight: "-15px" }}>
+                    <LanguageIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="FTTO" />
+                </ListItem>
+                <ListItem button onClick={() => goTo(URL_PAGES.incidenciaCliente.path)}>
+                  <ListItemIcon style={{ marginRight: "-15px" }}>
+                    <AssignmentLateIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Incidencia" />
                 </ListItem>
 
                 <ListItem button onClick={() => goTo(URL_PAGES.reporteCliente.path)}>

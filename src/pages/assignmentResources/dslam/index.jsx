@@ -4,10 +4,12 @@ import SectionTitle from "../../../elements/sectionTitle"
 import AddFab from "../../../elements/addFab"
 import StatePort from "./statePort"
 import AddDslam from "./addDslam"
+import EditDslam from "./editDslam"
+import DetailDslam from "./detailDslam"
 import User from "../../../assets/images/user.jpeg"
 import { Grid, Tooltip, IconButton, Avatar } from "@material-ui/core"
 import StateTarjet from "./stateTarjet"
-
+import DescriptionIcon from "@material-ui/icons/Description"
 import WorkIcon from "@material-ui/icons/Work"
 import BarChartIcon from "@material-ui/icons/BarChart"
 import ChromeReaderModeIcon from "@material-ui/icons/ChromeReaderMode"
@@ -28,13 +30,28 @@ const ClienteIndex = (props) => {
   const classes = useStyles()
 
   const [open, setOpen] = React.useState(false)
-
+  const [open1, setOpen1] = React.useState(false)
+  const [openDetail, setOpenDetail] = React.useState(false)
   const handleClickOpen = () => {
     setOpen(true)
   }
+  const handleClickOpen1 = () => {
+    setOpen1(true)
+  }
 
+  const handleClickOpenDetail = () => {
+    setOpenDetail(true)
+  }
   const handleClose = () => {
     setOpen(false)
+  }
+
+  const handleClose1 = () => {
+    setOpen1(false)
+  }
+
+  const handleCloseDetail = () => {
+    setOpenDetail(false)
   }
 
   React.useEffect(() => {
@@ -64,9 +81,8 @@ const ClienteIndex = (props) => {
             searchPayload={{
               title: "Seccion de busqueda",
               searchParam: [
-                { value: 1, label: "Abonado" },
-                { value: 2, label: "Contrato" },
-                { value: 3, label: "Vlan" },
+                { value: 1, label: "Dslam" },
+                { value: 2, label: "Nodo" },
               ],
             }}
             /* search value */
@@ -89,27 +105,34 @@ const ClienteIndex = (props) => {
               },
 
               {
-                title: "Tarjeta",
+                title: "Tarjetas",
                 field: "tarjeta",
-              },
-              {
-                title: "Puertos",
-                field: "puerto",
               },
 
               {
                 title: "Acciones",
                 render: (rowData) => (
                   <>
-                    <Tooltip title="Modificar Registro">
+                    <Tooltip title="Modificar Dslam">
                       <IconButton
                         style={{
                           marginLeft: "auto",
                           marginRight: "auto",
                         }}
-                        onClick={handleClickOpen}
+                        onClick={handleClickOpen1}
                       >
                         <ChromeReaderModeIcon />
+                      </IconButton>
+                    </Tooltip>
+                    <Tooltip title="Detalle de Registro">
+                      <IconButton
+                        style={{
+                          marginLeft: "auto",
+                          marginRight: "auto",
+                        }}
+                        onClick={handleClickOpenDetail}
+                      >
+                        <DescriptionIcon />
                       </IconButton>
                     </Tooltip>
                   </>
@@ -122,13 +145,11 @@ const ClienteIndex = (props) => {
                   dslam: "Mxk-319 ",
                   nodo: "Sambil",
                   tarjeta: "6",
-                  puertos: "80 ",
                 },
                 {
                   dslam: "Huawei ",
                   nodo: "San ignacio",
                   tarjeta: "4",
-                  puertos: "20 ",
                 },
               ],
               meta: {
@@ -146,6 +167,8 @@ const ClienteIndex = (props) => {
       </AddFab>
 
       <AddDslam open={open} handleClose={handleClose} title={"   Gestionar Dslam"} />
+      <EditDslam open={open1} handleClose={handleClose1} title={"   Editar Dslam"} />
+      <DetailDslam open={openDetail} handleClose={handleCloseDetail} title={"Detalle de Dslam"} />
     </>
   )
 }

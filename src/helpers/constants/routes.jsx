@@ -51,6 +51,15 @@ export const URL_PAGES = {
     label: "AdminUser",
     path: "/adminUser",
   },
+
+  incidenciaCliente: {
+    label: "Incidencia",
+    path: "/incidencia",
+  },
+  ftto: {
+    label: "FTTO",
+    path: "/ftto",
+  },
 }
 
 /**

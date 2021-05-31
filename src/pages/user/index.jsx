@@ -89,8 +89,12 @@ const AlquilerIndex = (props) => {
                 field: "nombreApellido",
               },
               {
-                title: "Correo",
+                title: "Usuario",
                 field: "nombreusuario",
+              },
+              {
+                title: "Correo",
+                field: "correo",
               },
               {
                 title: " Cedula",
@@ -148,7 +152,8 @@ const AlquilerIndex = (props) => {
                 {
                   id: "123213",
                   nombreApellido: "Miguel Martin",
-                  nombreusuario: "Mmartin@gmail.com",
+                  nombreusuario: "Mmartin",
+                  correo: "Mmartin@gmail.com	",
                   cedula: "28006871",
                   estado: "activo",
                   fechaUltimaSesion: "12/01/2021",

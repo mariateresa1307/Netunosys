@@ -4,16 +4,14 @@ import SectionTitle from "../../elements/sectionTitle"
 import AddFab from "../../elements/addFab"
 import CustomCard from "../../components/card"
 import User from "../../assets/images/user.jpeg"
-
 import { Grid, IconButton, Tooltip } from "@material-ui/core"
-
 import WorkIcon from "@material-ui/icons/Work"
 import ChromeReaderModeIcon from "@material-ui/icons/ChromeReaderMode"
 import BarChartIcon from "@material-ui/icons/BarChart"
-
 import { makeStyles } from "@material-ui/core/styles"
 import Avatar from "@material-ui/core/Avatar"
-
+import AddIP from "./addIP"
+import ModifyIP from "./modifyIp"
 const useStyles = makeStyles((theme) => ({
   appBar: {
     position: "relative",
@@ -28,6 +26,7 @@ const ClienteIndex = (props) => {
   const classes = useStyles()
 
   const [open, setOpen] = React.useState(false)
+  const [open1, setOpen1] = React.useState(false)
 
   const handleClickOpen = () => {
     setOpen(true)
@@ -35,6 +34,14 @@ const ClienteIndex = (props) => {
 
   const handleClose = () => {
     setOpen(false)
+  }
+
+  const handleClickOpen1 = () => {
+    setOpen1(true)
+  }
+
+  const handleClose1 = () => {
+    setOpen1(false)
   }
 
   React.useEffect(() => {
@@ -80,27 +87,24 @@ const ClienteIndex = (props) => {
                 },
               },
               {
-                title: "Ip",
-                field: "ip",
+                title: "Ip Adress",
+                field: "adress",
               },
               {
-                title: " Mascara",
+                title: "Mascara",
                 field: "mascara",
               },
-
               {
-                title: "Observaciones",
-                field: "observaciones",
+                title: " Asignada a:",
+                field: "asignada",
               },
-
               {
-                title: "Equipo Core",
-                field: "equipoCore",
+                title: "Observaciones ",
+                field: "Observaciones",
               },
-
               {
-                title: "Bloque ip",
-                field: "bloqueIp",
+                title: "Fecha asignacion",
+                field: "fechaAsignacion",
               },
               {
                 title: "Acciones",
@@ -112,7 +116,7 @@ const ClienteIndex = (props) => {
                           marginLeft: "auto",
                           marginRight: "auto",
                         }}
-                        onClick={handleClickOpen}
+                        onClick={handleClickOpen1}
                       >
                         <ChromeReaderModeIcon />
                       </IconButton>
@@ -124,18 +128,18 @@ const ClienteIndex = (props) => {
             data={{
               items: [
                 {
-                  ip: "190.6.63.182",
-                  mascara: "255.255.255.252",
-                  observaciones: "Vlan: 2811  Condominio Centro San Ignacio",
-                  equipoCore: "7604 PQC",
-                  bloqueIp: " 190.6.63.180/30",
+                  adress: "192.168.0.0",
+                  mascara: "255.255.255.0 ",
+                  asignada: "Corp Tecnologia Global 21 ",
+                  Observaciones: "7604 PQC",
+                  fechaAsignacion: "11 MAY 12:56  2021 ",
                 },
                 {
-                  ip: "190.6.63.182",
-                  mascara: "255.255.255.248",
-                  observaciones: "Vlan 2824  Club Trotamundo",
-                  equipoCore: "7604 PQC",
-                  bloqueIp: " 190.6.63.180/29",
+                  adress: "192.168.0.0",
+                  mascara: "255.255.255.0 ",
+                  asignada: "Corp Tecnologia Global 21 ",
+                  Observaciones: "7604 PQC",
+                  fechaAsignacion: "11 MAY 12:56  2021 ",
                 },
               ],
               meta: {
@@ -151,6 +155,9 @@ const ClienteIndex = (props) => {
       <AddFab variant="outlined" type="button" color="primary" onClick={handleClickOpen}>
         <WorkIcon style={{ marginRight: "15px" }} /> Agregar Nuevos Bloques
       </AddFab>
+
+      <AddIP open={open} handleClose={handleClose} title={"   Gestionar Bloques IP"} />
+      <ModifyIP open={open1} handleClose={handleClose1} title={"   Modificar Bloques IP"} />
     </>
   )
 }

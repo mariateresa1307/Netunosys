@@ -9,15 +9,13 @@ import Tooltip from "@material-ui/core/Tooltip"
 import AddFab from "../../elements/addFab"
 import CustomCard from "../../components/card"
 import BarChartIcon from "@material-ui/icons/BarChart"
-import DetallesRegistro from "./dialogDetalle"
-import ModifyCustomers from "../../components/modifyCustomers"
-import StateCustomers from "./stateCustomers"
-import StateService from "./stateService"
-
+import ErrorIcon from "@material-ui/icons/Error"
 import { makeStyles } from "@material-ui/core/styles"
 import Avatar from "@material-ui/core/Avatar"
-import User from "../../assets/images/user.jpeg"
+import CustomModal from "./addIncidence"
+import ModifyIncidence from "./addIncidence"
 import ListAltIcon from "@material-ui/icons/ListAlt"
+
 const useStyles = makeStyles((theme) => ({
   appBar: {
     position: "relative",
@@ -34,13 +32,16 @@ const ClienteIndex = (props) => {
   const [open, setOpen] = React.useState(false)
 
   const [open1, setOpen1] = React.useState(false)
-
+  const [open2, setOpen2] = React.useState(false)
   const handleClickOpen = () => {
     setOpen(true)
   }
 
   const handleClickOpen1 = () => {
     setOpen1(true)
+  }
+  const handleClickOpen2 = () => {
+    setOpen2(true)
   }
 
   const handleClose = () => {
@@ -51,6 +52,9 @@ const ClienteIndex = (props) => {
     setOpen1(false)
   }
 
+  const handleClose2 = () => {
+    setOpen2(false)
+  }
   React.useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" })
   }, [])
@@ -59,16 +63,16 @@ const ClienteIndex = (props) => {
     <>
       <Grid container spacing={4} justify="center">
         <Grid item xs={12}>
-          <SectionTitle label={"Clientes ip"} />
+          <SectionTitle label={" Gestionar Incidencia "} />
         </Grid>
         <Grid item xs={12} lg={12}>
           <Grid container spacing={2} justify="center">
             <Grid item xs={12} sm={6} md={6} lg={6}>
-              <StateCustomers />
+              <CustomCard title=" Incidencias Activas" content="59" background={"linear-gradient(to right, #fe8c81 0%, #fbd323 100%)"} icons={<BarChartIcon />} />
             </Grid>
 
             <Grid item xs={12} sm={6} md={6} lg={6}>
-              <StateService />
+              <CustomCard title="Incidencias Finalizadas" content="59" background={"linear-gradient(to right, #a77ffc, #ca77ea, #e370d6, #f46dc1, #ff6eac)"} icons={<BarChartIcon />} />
             </Grid>
           </Grid>
         </Grid>
@@ -85,63 +89,53 @@ const ClienteIndex = (props) => {
             }}
             /* search value */
             noSearch
-            title={"Registros de Clientes"}
+            title={"Registros de Incidencias"}
             columns={[
               {
                 field: "user",
                 render: (rowData) => {
-                  return <Avatar style={{ float: "right" }} src={User} />
+                  return <Avatar style={{ float: "right", backgroundColor: "#304074", fontSize: "12px", fontWeight: "bold" }}>CORP-</Avatar>
                 },
               },
               {
-                title: "Abonado",
-                field: "abonado",
+                title: "Numero del caso",
+                field: "NumeroCaso",
               },
               {
-                title: " Contrato",
-                field: "contrato",
+                title: " Titulo del Caso ",
+                field: "TituloCaso",
               },
 
               {
-                title: "Vlan",
-                field: "vlan",
+                title: "Fecha de Creacion ",
+                field: "FechaApertura",
               },
               {
-                title: "Id Cliente",
-                field: "id",
-              },
-              {
-                title: "Ip Serial",
-                field: "ip",
-              },
-              {
-                title: "Equipo Core",
-                field: "equipoCore",
-              },
-              {
-                title: "Dslam",
-                field: "dslam",
-              },
-              {
-                title: "Tarjeta",
-                field: "tarjeta",
-              },
-              {
-                title: "Puerto",
-                field: "puerto",
-              },
-              {
-                title: "Bw",
-                field: "bw",
+                title: "Cliente",
+                field: "Cliente",
               },
               {
                 title: "Servicio",
-                field: "servicio",
+                field: "Servicio",
+              },
+
+              {
+                title: "Reporte del cliente",
+                field: "Reporte",
               },
               {
-                title: "Bloque ip",
-                field: "bloqueIp",
+                title: "Incidencia asociada ",
+                field: "IncidenciaAsociada",
               },
+              {
+                title: "Propietario",
+                field: "Usuario",
+              },
+              {
+                title: "Estatus",
+                field: "Estatus",
+              },
+
               {
                 title: "Acciones",
                 render: (rowData) => (
@@ -152,7 +146,7 @@ const ClienteIndex = (props) => {
                           marginLeft: "auto",
                           marginRight: "auto",
                         }}
-                        onClick={handleClickOpen}
+                        onClick={handleClickOpen1}
                       >
                         <ChromeReaderModeIcon />
                       </IconButton>
@@ -163,7 +157,7 @@ const ClienteIndex = (props) => {
                           marginLeft: "auto",
                           marginRight: "auto",
                         }}
-                        onClick={handleClickOpen1}
+                        onClick={handleClickOpen2}
                       >
                         <ListAltIcon />
                       </IconButton>
@@ -175,32 +169,26 @@ const ClienteIndex = (props) => {
             data={{
               items: [
                 {
-                  abonado: "829871 ",
-                  contrato: "10022759",
-                  vlan: "2824",
-                  id: "Corp Tecnologia Global 21 ",
-                  ip: "190.6.63.182",
-                  equipoCore: "7604 PQC",
-                  dslam: "MXK319 PQC",
-                  tarjeta: "3",
-                  puerto: "4",
-                  bw: "1MB/10MB",
-                  servicio: "ADSL2+",
-                  bloqueIp: " 190.6.63.180/30",
+                  NumeroCaso: "173348 ",
+                  TituloCaso: "CCS - Monitoreo de temperatura equipos Nodo PQC",
+                  FechaApertura: "22/05/2020",
+                  Cliente: "Corp Tecnologia Global 21 ",
+                  Servicio: "ADSL",
+                  Reporte: "Sin Conexion",
+                  IncidenciaAsociada: "afectacion por falla en el modem",
+                  Usuario: "Admin",
+                  Estatus: "Activo",
                 },
                 {
-                  abonado: "829871 ",
-                  contrato: "10022759",
-                  vlan: "2824",
-                  id: "Corp Tecnologia Global 21 ",
-                  ip: "190.6.63.182",
-                  equipoCore: "7604 PQC",
-                  dslam: "MXK319 PQC",
-                  tarjeta: "3",
-                  puerto: "4",
-                  bw: "1MB/10MB",
-                  servicio: "ADSL2+",
-                  bloqueIp: " 190.6.63.180/30",
+                  NumeroCaso: "173161 ",
+                  TituloCaso: "CCS - Monitoreo de temperatura ",
+                  FechaApertura: "21/05/2020",
+                  Cliente: "Global 21 ",
+                  Servicio: "DATOS",
+                  Reporte: "Lentitud",
+                  IncidenciaAsociada: "Saturacion ",
+                  Usuario: "Admin3",
+                  Estatus: "Activo",
                 },
               ],
               meta: {
@@ -214,11 +202,11 @@ const ClienteIndex = (props) => {
       </Grid>
 
       <AddFab variant="outlined" type="button" color="primary" onClick={handleClickOpen}>
-        <WorkIcon style={{ marginRight: "15px" }} /> Agregar Servicio
+        <ErrorIcon style={{ marginRight: "15px" }} /> Agregar Incidencia
       </AddFab>
 
-      <ModifyCustomers open={open} handleClose={handleClose} title={"Gestionar Servicios"} />
-      <DetallesRegistro open1={open1} handleClose={handleClose1} title={"Detalles del Servicio"} />
+      <CustomModal open={open} handleClose={handleClose} title={"   Gestionar Incidencia"} />
+      <ModifyIncidence open={open1} handleClose={handleClose1} title={"   Gestionar Incidencia"} />
     </>
   )
 }

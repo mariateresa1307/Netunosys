@@ -15,7 +15,7 @@ import Search from "@material-ui/icons/Search"
 import Button from "@material-ui/core/Button"
 import Tooltip from "@material-ui/core/Tooltip"
 import SearchModal from "../components/modalSearch"
-
+import DescriptionIcon from "@material-ui/icons/Description"
 const useStyles = makeStyles((theme) => ({
   container: {
     maxHeight: 440,
@@ -98,7 +98,14 @@ export default function StickyHeadTable(props) {
               {title}
             </Typography>
           </Grid>
-          <Grid item xs={12} sm={2} md={2} lg={2} style={{ minHeight: "64px" }}>
+          <Grid item xs={12} sm={1} md={1} lg={1} style={{ minHeight: "64px" }}>
+            <Tooltip title="Ver Registros">
+              <Button disableElevation className={classes.searchButton}>
+                <DescriptionIcon />
+              </Button>
+            </Tooltip>
+          </Grid>
+          <Grid item xs={12} sm={1} md={1} lg={1} style={{ minHeight: "64px" }}>
             <Tooltip title="Abrir busqueda">
               <Button onClick={handleClickOpen} disableElevation className={classes.searchButton}>
                 <Search />

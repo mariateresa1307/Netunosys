@@ -3,6 +3,7 @@ import Grid from "@material-ui/core/Grid"
 import Divider from "@material-ui/core/Divider"
 import InputLabel from "@material-ui/core/InputLabel"
 import MenuItem from "@material-ui/core/MenuItem"
+import TextField from "@material-ui/core/TextField"
 
 import FormControl from "@material-ui/core/FormControl"
 import Select from "@material-ui/core/Select"
@@ -177,6 +178,10 @@ const EmpleadoStep = () => {
               <MenuItem value={20}>Desconectado-Hard </MenuItem>
             </Select>
           </FormControl>
+        </Grid>
+
+        <Grid item xs={12} sm={12} md={12}>
+          <TextField fullWidth id="filled-multiline-static" label="Informacion Adicional" multiline rows={4} defaultValue="" variant="filled" />
         </Grid>
 
         <Grid item xs={12}>

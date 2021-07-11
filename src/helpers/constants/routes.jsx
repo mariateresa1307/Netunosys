@@ -34,6 +34,10 @@ export const URL_PAGES = {
     label: "Asignacion DSLAM",
     path: "/asignacionRecursos/dslam",
   },
+  recursoIad: {
+    label: "Asignacion IAD",
+    path: "/asignacionRecursos/iad",
+  },
   ip: {
     label: "Inicio",
     path: "/asignamentIp",

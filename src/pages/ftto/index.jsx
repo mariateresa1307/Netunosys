@@ -66,7 +66,7 @@ const IndexHome = (props) => {
         <Grid item xs={12} lg={12}>
           <Grid container spacing={2} justify="center">
             <Grid item xs={12} sm={6} md={6} lg={6}>
-              <CustomCard title=" FiberPon Premium" content="59" background={"linear-gradient(to right, #fe8c81 0%, #fbd323 100%)"} icons={<BarChartIcon />} />
+              <CustomCard title=" FiberPon Premium" content="59" background={"linear-gradient(to left, #7559ce, #6f68d7, #6a76de, #6783e4, #678fe9"} icons={<BarChartIcon />} />
             </Grid>
 
             <Grid item xs={12} sm={6} md={6} lg={6}>

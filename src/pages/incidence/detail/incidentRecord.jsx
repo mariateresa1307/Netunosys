@@ -47,6 +47,10 @@ const Detail = (props) => {
           <CustomTimepicker label="Fecha de Inicio" />
         </Grid>
 
+        <Grid item xs={12} sm={6} md={4} lg={4}>
+          <CustomTimepicker label="Fecha de Fin" />
+        </Grid>
+
         <Grid item xs={12} sm={6} md={4} lg={4} /*en la seccion del Dslam se agregara el numero de puertos*/>
           <FormControl fullWidth variant="filled">
             <InputLabel fullWidth id="3">
@@ -63,7 +67,10 @@ const Detail = (props) => {
         </Grid>
 
         <Grid item xs={12} sm={6} md={4} lg={4}>
-          <TextField label="  Incidencia asociada	" fullWidth variant="filled" />
+          <TextField label="  Tipo de Falla	" fullWidth variant="filled" />
+        </Grid>
+        <Grid item xs={12} sm={6} md={4} lg={4}>
+          <TextField label="  Causa Incidencia 	" fullWidth variant="filled" />
         </Grid>
         <Grid item xs={12} sm={6} md={4} lg={4}>
           <TextField label="  Solucion Incidencia 	" fullWidth variant="filled" />

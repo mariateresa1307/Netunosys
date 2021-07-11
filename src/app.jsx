@@ -9,6 +9,7 @@ import Customers from "./pages/customers"
 import Ip from "./pages/asignamentIp/index"
 import AsignacionRecursos from "./pages/assignmentResources/vlans"
 import Recurso from "./pages/assignmentResources/dslam/index"
+import RecursoIad from "./pages/assignmentResources/iad/index"
 import User from "./pages/user"
 import AdminUser from "./pages/user/adminUser"
 import notFound from "./pages/notFound"
@@ -58,6 +59,7 @@ function PagesIndex() {
           <Animate exact path={URL_PAGES.asignacionRecursos.path} component={<AsignacionRecursos />} />
           <Animate exact path={URL_PAGES.ip.path} component={<Ip />} />
           <Animate exact path={URL_PAGES.recurso.path} component={<Recurso />} />
+          <Animate exact path={URL_PAGES.recursoIad.path} component={<RecursoIad />} />
           <Animate exact path={URL_PAGES.user.path} component={<User />} />
           <Animate exact path={URL_PAGES.adminUser.path} component={<AdminUser />} />
           <Animate exact path={URL_PAGES.incidenciaCliente.path} component={<Incidencia />} />

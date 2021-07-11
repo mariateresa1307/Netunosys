@@ -81,6 +81,7 @@ const ClienteIndex = (props) => {
                 { value: 1, label: "Abonado" },
                 { value: 2, label: "Contrato" },
                 { value: 3, label: "Vlan" },
+                { value: 4, label: "Ip Serial" },
               ],
             }}
             /* search value */

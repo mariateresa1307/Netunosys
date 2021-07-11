@@ -159,6 +159,13 @@ const Menu = (props) => {
                   </ListItemIcon>
                   <ListItemText primary=" Gestion Dslam  " />
                 </ListItem>
+
+                <ListItem button onClick={() => goTo(URL_PAGES.recursoIad.path)}>
+                  <ListItemIcon style={{ marginRight: "-15px" }}>
+                    <RadioIcon />
+                  </ListItemIcon>
+                  <ListItemText primary=" Gestion IAD  " />
+                </ListItem>
               </List>
             </Collapse>
           </div>

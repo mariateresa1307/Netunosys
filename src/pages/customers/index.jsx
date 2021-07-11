@@ -16,7 +16,6 @@ import Avatar from "@material-ui/core/Avatar"
 import User from "../../assets/images/user.jpeg"
 import ListAltIcon from "@material-ui/icons/ListAlt"
 import ModifyCustomers from "../../components/modifyCustomers"
-import Carousel from "../../components/carousel"
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -32,7 +31,6 @@ const ClienteIndex = (props) => {
   const classes = useStyles()
 
   const [open, setOpen] = React.useState(false)
-
   const [open1, setOpen1] = React.useState(false)
   const [open2, setOpen2] = React.useState(false)
   const handleClickOpen = () => {
@@ -69,10 +67,6 @@ const ClienteIndex = (props) => {
         </Grid>
         <Grid item xs={12} lg={12}>
           <Grid container spacing={2} justify="center">
-            <Grid item xs={12} sm={6} md={3} lg={3}>
-              <Carousel />
-            </Grid>
-
             <Grid item xs={12} sm={6} md={3} lg={3}>
               <CustomCard title=" Conectados" content="59" background={"linear-gradient(to right, #0ec8d5, #00d7d4, #00e6cc, #00f3bc, #37ffa5)"} icons={<BarChartIcon />} />
             </Grid>

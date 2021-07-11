@@ -40,9 +40,7 @@ const Detail = (props) => {
         <Grid item xs={12} sm={6} md={4} lg={4}>
           <TextField label="Vlan" fullWidth variant="filled" />
         </Grid>
-        <Grid item xs={12} sm={6} md={4} lg={4}>
-          <TextField label="Vlan" fullWidth variant="filled" />
-        </Grid>
+
         <Grid item xs={12} sm={6} md={4} lg={4}>
           <TextField label="Ont Id" fullWidth variant="filled" />
         </Grid>

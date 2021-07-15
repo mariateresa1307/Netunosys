@@ -15,5 +15,19 @@ export const ALERT = {
 };
 
 
+export const USER = {
+  SUCCESS: "user_success",
+  ERROR: "user_error"
+};
 
+
+
+export const ROLES = {
+  SUCCESS: "roles_dataset_success",
+  ERROR: "roles_dataset_error"
+};
+export const USER_DATASET = {
+  SUCCESS: "user_dataset_success",
+  ERROR: "user_dataset_error"
+};
 

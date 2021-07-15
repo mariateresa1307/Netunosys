@@ -14,13 +14,23 @@ import { makeStyles } from "@material-ui/core/styles"
 import Container from "@material-ui/core/Container"
 import { Card } from "@material-ui/core"
 import header from "../../assets/images/2logonet.png"
+
 import Divider from "@material-ui/core/Divider"
 import Particles from "react-particles-js"
 import { URL_PAGES } from "../../helpers/constants/routes"
 import history from "../../helpers/history"
 import { useSelector, useDispatch } from "react-redux"
 import { menuClose } from "../../actions/menu"
-import Fondo from "../../assets/images/fondo.jpg"
+import FormControl from "@material-ui/core/FormControl";
+import InputLabel from "@material-ui/core/InputLabel";
+import Input from "@material-ui/core/Input";
+import IconButton from "@material-ui/core/IconButton";
+import Visibility from "@material-ui/icons/Visibility";
+import VisibilityOff from "@material-ui/icons/VisibilityOff";
+import { loginAction } from "../../actions/users";
+import InputAdornment from "@material-ui/core/InputAdornment";
+
+import clsx from "clsx";
 const params = {
   particles: {
     number: {
@@ -169,6 +179,24 @@ const useStyles = makeStyles((theme) => ({
 export default function SignIn() {
   const classes = useStyles()
   const dispatch = useDispatch()
+
+  const [values, setValues] = React.useState({
+    usuario: "admin@admin.com",
+    password: "1234",
+    showPassword: false
+  });
+
+  const handleChange = (prop) => (event) => {
+    setValues({ ...values, [prop]: event.target.value });
+  };
+  const handleClickShowPassword = () => {
+    setValues({ ...values, showPassword: !values.showPassword });
+  };
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+
   const goTo = (path) => {
     history.push(path)
 
@@ -196,40 +224,107 @@ export default function SignIn() {
           position: "fixed",
           backgroundSize: "cover",
           backgroundPosition: "center",
-          backgroundImage: `url("${Fondo}")`,
+          background: "#1A223E",
         }}
       />
       <Grid container justify="center">
         <Grid item xs={5} sm={5} md={4} style={{ zIndex: "20" }}>
           <Card style={{ marginTop: "25%" }}>
             <CssBaseline />
-            <div className={classes.paper} style={{ marginTop: "50px", marginBottom: "80px" }}>
-              <img // image
-                src={header}
-                alt="Administradora Yuruary"
-                style={{
-                  maxWidth: "300px",
-                  width: "110%",
-                  textAlign: "center",
-                  display: "block",
-                  margin: "auto",
-                  marginTop: "-22px",
-                  marginBottom: "0px",
-                }}
-              />
-              <Divider />
-              <Typography component="h1" variant="h5">
-                Iniciar Sesion
+            
+      
+        <div
+          style={{
+            height: "170px",
+            
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            borderTopLeftRadius: "10px",
+            borderTopRightRadius: "10px",
+            borderBottomColor: "3px solid #001a39",
+
+            borderBottomWidth: "3px",
+            borderBottomStyle: "solid"
+          }}
+        >
+          <div
+            style={{
+              width: "100%",
+              height: "100%",
+              backdropFilter: "blur(2px)",
+              backgroundColor: "#ffffff61",
+              borderTopLeftRadius: "10px",
+              borderTopRightRadius: "10px"
+            }}
+          >
+            <img
+              src={header}
+              alt=""
+              style={{
+                width: "100%",
+                maxWidth: "260px",
+                marginLeft: "auto",
+                marginRight: "auto",
+                display: "block",
+                paddingTop: "30px"
+              }}
+            />
+          </div>
+        </div>
+        <div
+          style={{
+            padding: "50px"
+          }}
+        >
+          
+              
+              <Grid container justify="center" spacing={2}>
+
+              <Grid item xs={12} >
+              <Typography component="h1" align="center" variant="h5">
+                Iniciar sesión
               </Typography>
+              </Grid>
+
               <form className={classes.form} noValidate>
-                <TextField variant="outlined" margin="normal" required fullWidth id="User" label="Usuario" name="User" autoComplete="email" autoFocus />
-                <TextField variant="outlined" margin="normal" required fullWidth name="password" label="Password" type="password" id="password" autoComplete="current-password" />
+                
+              <Grid item xs={12}>
+              <TextField label="usuario" fullWidth value={values.usuario} onChange={handleChange("usuario")} />
+            </Grid>
+                <Grid item xs={12}>
+              <FormControl fullWidth className={clsx(classes.textField)}>
+                <InputLabel htmlFor="standard-adornment-password">Contraseña</InputLabel>
+                <Input
+                  id="standard-adornment-password"
+                  type={values.showPassword ? "text" : "password"}
+                  value={values.password}
+                  onChange={handleChange("password")}
+                  fullWidth
+                  endAdornment={
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="toggle password visibility"
+                        onClick={handleClickShowPassword}
+                        onMouseDown={handleMouseDownPassword}
+                      >
+                        {values.showPassword ? <Visibility /> : <VisibilityOff />}
+                      </IconButton>
+                    </InputAdornment>
+                  }
+                />
+              </FormControl>
+            </Grid>
                 <FormControlLabel control={<Checkbox value="remember" color="primary" />} label="Recordarme" />
-                <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit} onClick={() => goTo(URL_PAGES.home.path)}>
+                <Button type="button" fullWidth variant="contained" color="primary" className={classes.submit} onClick={() => dispatch(loginAction({ usuario: values.usuario, clave: values.password }))}>
                   Ingresar
                 </Button>
               </form>
-            </div>
+              </Grid>
+          
+              
+              </div>
+              
+              
           </Card>
         </Grid>
         <Grid item xs={12}>

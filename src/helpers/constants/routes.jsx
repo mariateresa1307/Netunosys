@@ -72,5 +72,9 @@ export const URL_PAGES = {
 export const API_URL = {
   //base: "http://192.168.0.102:3000/api/",
   base: `${process.env.REACT_APP_API_URL}/api/`,
-  routes: {},
+  routes: {
+    login: "usuario/login",
+    roles: "usuario/roles",
+    usuario: "usuario",
+  },
 }

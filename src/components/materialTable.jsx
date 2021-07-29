@@ -141,13 +141,13 @@ export default function StickyHeadTable(props) {
                 return (
                   <TableRow hover key={index}>
                     {columns.map((column) => {
-                      let value = null
+                      let value = false
                       if (Array.isArray(column.field)) {
                         value = row
                       } else if (column.field === undefined) {
                         value = row
                       } else {
-                        value = column.field.split(".").reduce((p, c) => (p && p[c]) || null, row)
+                        value = column.field.split(".").reduce((p, c) => (p && p[c]) || false, row)
                       }
                       return (
                         <TableCell key={Array.isArray(column.field) ? column.field[0] : column.field || index} align={"center"}>

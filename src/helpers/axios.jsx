@@ -1,25 +1,25 @@
-import axios from "axios";
-import history from "./history";
-import { URL_PAGES } from "./constants/routes";
+import axios from "axios"
+import history from "./history"
+import { URL_PAGES } from "./constants/routes"
 
 let AXIOS = axios.create({
   headers: {
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   },
-  timeout: 100000
-});
+  timeout: 100000,
+})
 
 AXIOS.interceptors.request.use(
   (config) => {
-    const user = JSON.parse(localStorage.getItem("YRYUSER"));
+    const token = localStorage.getItem("NETUNOTOKEN")
 
-    if (user) {
-      config.headers.Authorization = `Bearer ${user.token}`;
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`
     }
-    return config;
+    return config
   },
   (error) => Promise.reject(error)
-);
+)
 
 AXIOS.interceptors.response.use(
   (response) => response,
@@ -34,31 +34,31 @@ AXIOS.interceptors.response.use(
             /**
              * Redireccionar al login
              */
-            history.push(URL_PAGES.login.path);
-            return Promise.reject("Sesión no autorizada");
+            history.push(URL_PAGES.login.path)
+            return Promise.reject("Sesión no autorizada")
           }
           default: {
-            return Promise.reject(error.toString());
+            return Promise.reject(error.toString())
           }
         }
       } else if (error.response.data) {
         /**
          * Tiene conexion al internet pero el server respondio con error
          */
-        return Promise.reject(error.response.data.message);
+        return Promise.reject(error.response.data.message)
       }
     } else {
       /**
        * No se pudo establecer conexion con el servidor
        */
-      if (!error.status) return Promise.reject("No se pudo conectar al servidor");
+      if (!error.status) return Promise.reject("No se pudo conectar al servidor")
 
       /**
        * Error generico (?)
        */
-      return Promise.reject(error.toString());
+      return Promise.reject(error.toString())
     }
   }
-);
+)
 
-export { AXIOS };
+export { AXIOS }

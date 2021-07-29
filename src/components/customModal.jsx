@@ -40,9 +40,6 @@ export default function FullScreenDialog(props) {
             <Typography variant="h6" className={classes.title}>
               {props.title}
             </Typography>
-            <Button autoFocus color="inherit" onClick={props.handleClose}>
-              Guardar
-            </Button>
           </Toolbar>
         </AppBar>
         <MuiDialogContent

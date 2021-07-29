@@ -1,26 +1,21 @@
 import React from "react"
-import Avatar from "@material-ui/core/Avatar"
 import Button from "@material-ui/core/Button"
 import CssBaseline from "@material-ui/core/CssBaseline"
 import TextField from "@material-ui/core/TextField"
-import FormControlLabel from "@material-ui/core/FormControlLabel"
-import Checkbox from "@material-ui/core/Checkbox"
+
 import Link from "@material-ui/core/Link"
 import Grid from "@material-ui/core/Grid"
-import Box from "@material-ui/core/Box"
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined"
 import Typography from "@material-ui/core/Typography"
 import { makeStyles } from "@material-ui/core/styles"
-import Container from "@material-ui/core/Container"
 import { Card } from "@material-ui/core"
 import header from "../../assets/images/2logonet.png"
+import Alert from "../../components/customizedSnackbars";
 
-import Divider from "@material-ui/core/Divider"
 import Particles from "react-particles-js"
-import { URL_PAGES } from "../../helpers/constants/routes"
+/*import { URL_PAGES } from "../../helpers/constants/routes"
 import history from "../../helpers/history"
-import { useSelector, useDispatch } from "react-redux"
-import { menuClose } from "../../actions/menu"
+import { menuClose } from "../../actions/menu"*/
+import {  useDispatch } from "react-redux"
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import Input from "@material-ui/core/Input";
@@ -181,7 +176,7 @@ export default function SignIn() {
   const dispatch = useDispatch()
 
   const [values, setValues] = React.useState({
-    usuario: "admin@admin.com",
+    usuario: "admin",
     password: "1234",
     showPassword: false
   });
@@ -197,13 +192,13 @@ export default function SignIn() {
     event.preventDefault();
   };
 
-  const goTo = (path) => {
+  /*const goTo = (path) => {
     history.push(path)
 
     setTimeout(function () {
       dispatch(menuClose())
     }, 500)
-  }
+  }*/
 
   React.useEffect(() => {
     const r = document.getElementById("root")
@@ -289,7 +284,7 @@ export default function SignIn() {
               <form className={classes.form} noValidate>
                 
               <Grid item xs={12}>
-              <TextField label="usuario" fullWidth value={values.usuario} onChange={handleChange("usuario")} />
+              <TextField label="Usuario" fullWidth value={values.usuario} onChange={handleChange("usuario")} />
             </Grid>
                 <Grid item xs={12}>
               <FormControl fullWidth className={clsx(classes.textField)}>
@@ -300,6 +295,7 @@ export default function SignIn() {
                   value={values.password}
                   onChange={handleChange("password")}
                   fullWidth
+                  
                   endAdornment={
                     <InputAdornment position="end">
                       <IconButton
@@ -314,11 +310,18 @@ export default function SignIn() {
                 />
               </FormControl>
             </Grid>
-                <FormControlLabel control={<Checkbox value="remember" color="primary" />} label="Recordarme" />
-                <Button type="button" fullWidth variant="contained" color="primary" className={classes.submit} onClick={() => dispatch(loginAction({ usuario: values.usuario, clave: values.password }))}>
+            
+               
+                <Button   type="button" 
+                fullWidth variant="contained" 
+                color="primary" 
+                className={classes.submit} 
+                
+                onClick={() =>   dispatch(loginAction({ usuario: values.usuario, clave: values.password }))}>
                   Ingresar
                 </Button>
               </form>
+              <Alert />
               </Grid>
           
               

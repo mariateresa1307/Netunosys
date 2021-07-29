@@ -1,7 +1,5 @@
 import React from "react";
-
 import { Divider, Grid } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
@@ -9,23 +7,10 @@ import Select from "@material-ui/core/Select";
 import Typography from "@material-ui/core/Typography";
 
 
-const useStyles = makeStyles((theme) => ({
-  formControl: {
-    margin: theme.spacing(1),
-    minWidth: 120,
-  },
-  selectEmpty: {
-    marginTop: theme.spacing(2),
-  },
-}));
 
 export default function AlertDialogSlide({}) {
-  const classes = useStyles();
-  const [age, setAge] = React.useState("");
 
-  const handleChange = (event) => {
-    setAge(event.target.value);
-  };
+
 
   return (
     <div>

@@ -20,16 +20,9 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const ModalClient = (props) => {
-  const [activeStep, setActiveStep] = React.useState(0)
   const classes = useStyles()
 
-  const handleBack = () => {
-    setActiveStep((prev) => prev - 1)
-  }
 
-  const handleNext = () => {
-    setActiveStep((prev) => prev + 1)
-  }
 
   return (
     <>

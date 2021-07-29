@@ -16,6 +16,7 @@
     "axios": "^0.19.2",
     "fontsource-roboto": "^4.0.0",
     "import": "0.0.6",
+    "luxon": "^2.0.1",
     "material-table": "^1.57.2",
     "mdbreact": "^4.27.0",
     "react": "^16.14.0",

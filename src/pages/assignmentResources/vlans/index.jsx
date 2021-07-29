@@ -11,22 +11,12 @@ import CustomCard from "../../../components/card"
 import BarChartIcon from "@material-ui/icons/BarChart"
 
 import AddVlan from "./addVlan"
-import { makeStyles } from "@material-ui/core/styles"
 import Avatar from "@material-ui/core/Avatar"
 import User from "../../../assets/images/user.jpeg"
 
-const useStyles = makeStyles((theme) => ({
-  appBar: {
-    position: "relative",
-  },
-  title: {
-    marginLeft: theme.spacing(2),
-    flex: 1,
-  },
-}))
+
 
 const ClienteIndex = (props) => {
-  const classes = useStyles()
 
   const [open, setOpen] = React.useState(false)
 

@@ -1,5 +1,4 @@
 import React from "react"
-
 import Divider from "@material-ui/core/Divider"
 import InputLabel from "@material-ui/core/InputLabel"
 import MenuItem from "@material-ui/core/MenuItem"
@@ -7,21 +6,10 @@ import TextField from "@material-ui/core/TextField"
 import CustomDatepicker from "../../../components/CustomDatepicker"
 import FormControl from "@material-ui/core/FormControl"
 import Select from "@material-ui/core/Select"
-
 import { Grid } from "@material-ui/core"
-import { makeStyles } from "@material-ui/core/styles"
 
-const useStyles = makeStyles((theme) => ({}))
-const Detail = (props) => {
-  const classes = useStyles()
-  const [open, setOpen] = React.useState(false)
+const Detail = () => {
 
-  const handleClickOpen = () => {
-    setOpen(true)
-  }
-  const handleClose = () => {
-    setOpen(false)
-  }
 
   return (
     <>

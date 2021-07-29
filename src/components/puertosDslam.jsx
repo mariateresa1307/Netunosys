@@ -2,21 +2,14 @@ import React, { useState } from "react"
 import PuertoDown from "../assets/images/puertoDown.png"
 import PuertoUp from "../assets/images/puertoUp.png"
 import PuertoDamaged from "../assets/images/puertoDamaged.png"
-import { makeStyles } from "@material-ui/core/styles"
 import Popover from "@material-ui/core/Popover"
 import Tooltip from "@material-ui/core/Tooltip"
 import Button from "@material-ui/core/Button"
 import ButtonGroup from "@material-ui/core/ButtonGroup"
 
-const useStyles = makeStyles((theme) => ({
-  typography: {
-    padding: theme.spacing(2),
-  },
-}))
 
 const PuertosDslam = () => {
   // Declara una nueva variable de estado, que llamaremos "portState" la cual almacenara el estado del puerto .
-  const classes = useStyles()
   const [portState, setState] = useState("Down")
   const [anchorEl, setAnchorEl] = React.useState(null)
 

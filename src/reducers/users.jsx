@@ -1,24 +1,24 @@
-import { USER_DATASET, ROLES, OCPE } from "../helpers/constants/reducers";
+import { USER_DATASET } from "../helpers/constants/reducers"
+import { OCPE } from "../helpers/constants/reducers"
 
 export const userDataset = (state = { items: [], meta: {} }, payload) => {
   switch (payload.type) {
     case USER_DATASET.SUCCESS: {
-      return payload.dataset;
+      return payload.dataset
     }
     default: {
-      return state;
+      return state
     }
   }
-};
+}
 
-export const roles = (state = [], payload) => {
+export const contUserActivos = (state = { items: [], meta: {} }, payload) => {
   switch (payload.type) {
-    case ROLES.SUCCESS: {
-      return payload.dataset;
+    case OCPE.SUCCESS: {
+      return payload.dataset
     }
     default: {
-      return state;
+      return state
     }
   }
-};
-
+}

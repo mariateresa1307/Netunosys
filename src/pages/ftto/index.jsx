@@ -9,29 +9,19 @@ import AddFab from "../../elements/addFab"
 import CustomCard from "../../components/card"
 import BarChartIcon from "@material-ui/icons/BarChart"
 import WorkIcon from "@material-ui/icons/Work"
-import { makeStyles } from "@material-ui/core/styles"
 import Avatar from "@material-ui/core/Avatar"
 import User from "../../assets/images/user.jpeg"
 import ListAltIcon from "@material-ui/icons/ListAlt"
 import CustomModal from "./addFtto"
 import ModifyModal from "./addFtto"
-const useStyles = makeStyles((theme) => ({
-  appBar: {
-    position: "relative",
-  },
-  title: {
-    marginLeft: theme.spacing(2),
-    flex: 1,
-  },
-}))
 
 const IndexHome = (props) => {
-  const classes = useStyles()
+//  const classes = useStyles()
 
   const [open, setOpen] = React.useState(false)
 
   const [open1, setOpen1] = React.useState(false)
-  const [open2, setOpen2] = React.useState(false)
+ //const [open2, setOpen2] = React.useState(false)
   const handleClickOpen = () => {
     setOpen(true)
   }
@@ -39,9 +29,7 @@ const IndexHome = (props) => {
   const handleClickOpen1 = () => {
     setOpen1(true)
   }
-  const handleClickOpen2 = () => {
-    setOpen2(true)
-  }
+  
 
   const handleClose = () => {
     setOpen(false)
@@ -51,9 +39,6 @@ const IndexHome = (props) => {
     setOpen1(false)
   }
 
-  const handleClose2 = () => {
-    setOpen2(false)
-  }
   React.useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" })
   }, [])

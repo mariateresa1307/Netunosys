@@ -29,6 +29,8 @@ import RadioIcon from "@material-ui/icons/Radio"
 import AssessmentIcon from "@material-ui/icons/Assessment"
 import AssignmentLateIcon from "@material-ui/icons/AssignmentLate"
 import LanguageIcon from "@material-ui/icons/Language"
+import { logOutAction } from "../actions/users"
+
 const Menu = (props) => {
   const theme = useTheme()
   const dispatch = useDispatch()
@@ -220,7 +222,7 @@ const Menu = (props) => {
           </div>
 
           <Divider />
-          <ListItem button onClick={() => goTo(URL_PAGES.login.path)}>
+          <ListItem button onClick={() => dispatch(logOutAction())}>
             <ListItemIcon style={{ marginRight: "-15px" }}>
               <ExitToAppIcon />
             </ListItemIcon>

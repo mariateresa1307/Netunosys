@@ -22,7 +22,7 @@ const IndexHome = () => {
               marginTop: "240px",
               maxWidth: "550px",
               width: "50%",
-              marginTop: "20%",
+             
             }}
           />
 

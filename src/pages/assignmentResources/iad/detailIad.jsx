@@ -1,39 +1,22 @@
 import React, { useState } from "react"
 import CustomModal from "../../../components/customModal"
 import { TextField, Button, Grid } from "@material-ui/core"
-
 import { Spring } from "react-spring/renderprops"
 import SettingsEthernetIcon from "@material-ui/icons/SettingsEthernet"
 import panel from "../../../assets/images/panel.png"
-
 import PuertoDown from "../../../assets/images/puertoDown.png"
 import PuertoUp from "../../../assets/images/puertoUp.png"
 import PuertoDamaged from "../../../assets/images/puertoDamaged.png"
-import { makeStyles } from "@material-ui/core/styles"
-import Popover from "@material-ui/core/Popover"
-import Tooltip from "@material-ui/core/Tooltip"
-import ButtonGroup from "@material-ui/core/ButtonGroup"
 import DetailPort from "../../../components/CustomizedDialogs"
-const useStyles = makeStyles((theme) => ({
-  typography: {
-    padding: theme.spacing(2),
-  },
-}))
+
 
 const DetailIad = (props) => {
   // Declara una nueva variable de estado, que llamaremos "portState" la cual almacenara el estado del puerto .
-  const classes = useStyles()
   const [portState, setState] = useState("Down")
-  const [anchorEl, setAnchorEl] = React.useState(null)
+  const [anchorEl] = React.useState(null)
   const [open1, setOpen1] = React.useState(false)
 
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget)
-  }
 
-  const handleClose = () => {
-    setAnchorEl(null)
-  }
 
   const handleClickOpen1 = () => {
     setOpen1(true)

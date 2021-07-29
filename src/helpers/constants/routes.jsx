@@ -6,6 +6,10 @@ export const URL_PAGES = {
     label: "Inicio de sesión",
     path: "/",
   },
+  logOut: {
+    label: "cerrar de sesión",
+    path: "/",
+  },
   notFound: {
     label: "No encontrado",
     path: "/404",
@@ -73,8 +77,10 @@ export const API_URL = {
   //base: "http://192.168.0.102:3000/api/",
   base: `${process.env.REACT_APP_API_URL}/api/`,
   routes: {
-    login: "usuario/login",
-    roles: "usuario/roles",
+    login: "autenticacion/login",
+    logOut: "autenticacion/logOut",
     usuario: "usuario",
+    obtenerCantidadPorEstado: "usuario/obtenerCantidadPorEstado",
+    listaDeUsuarios: "usuario/listaDeUsuarios",
   },
 }

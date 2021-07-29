@@ -42,6 +42,22 @@ const ModalClient = (props) => {
           <Grid item xs={12} sm={9} md={8} ls={6}>
             <StepForm1 />
           </Grid>
+
+          <Grid
+            item
+            item
+            xs={12}
+            sm={9}
+            md={8}
+            ls={6}
+            style={{
+              textAlign: "right",
+            }}
+          >
+            <Button variant="contained" color="primary" disableElevation>
+              Guardar
+            </Button>
+          </Grid>
         </Grid>
       </CustomModal>
     </>

@@ -8,22 +8,12 @@ import { Grid, IconButton, Tooltip } from "@material-ui/core"
 import WorkIcon from "@material-ui/icons/Work"
 import ChromeReaderModeIcon from "@material-ui/icons/ChromeReaderMode"
 import BarChartIcon from "@material-ui/icons/BarChart"
-import { makeStyles } from "@material-ui/core/styles"
 import Avatar from "@material-ui/core/Avatar"
 import AddIP from "./addIP"
 import ModifyIP from "./modifyIp"
-const useStyles = makeStyles((theme) => ({
-  appBar: {
-    position: "relative",
-  },
-  title: {
-    marginLeft: theme.spacing(2),
-    flex: 1,
-  },
-}))
+
 
 const ClienteIndex = (props) => {
-  const classes = useStyles()
 
   const [open, setOpen] = React.useState(false)
   const [open1, setOpen1] = React.useState(false)

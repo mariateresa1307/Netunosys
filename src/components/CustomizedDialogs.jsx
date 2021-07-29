@@ -8,9 +8,7 @@ import MuiDialogActions from "@material-ui/core/DialogActions"
 import IconButton from "@material-ui/core/IconButton"
 import CloseIcon from "@material-ui/icons/Close"
 import Typography from "@material-ui/core/Typography"
-import Divider from "@material-ui/core/Divider"
 import Grid from "@material-ui/core/Grid"
-import SettingsInputHdmiIcon from "@material-ui/icons/SettingsInputHdmi"
 import Puerto from "../assets/images/images1.jpeg"
 const styles = (theme) => ({
   root: {
